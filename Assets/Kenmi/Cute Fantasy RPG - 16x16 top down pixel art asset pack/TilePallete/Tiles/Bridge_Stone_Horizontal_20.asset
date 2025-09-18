@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Bridge_Stone_Horizontal_20
   m_EditorClassIdentifier: 
   m_Sprite: {fileID: -1134309220, guid: 4974af1fa5aba5748b78c61c791aa950, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 1}
   m_Transform:
     e00: 1
     e01: 0
