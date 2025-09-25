@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
 
-public class PlayMovenments : MonoBehaviour
+public class SteletonController : MonoBehaviour
 {
-    public Rigidbody2D rb;
+    public Rigidbody2D steleton
+        ;
     public float speed = 5f;
 
     public Animator animator;
@@ -23,6 +24,6 @@ public class PlayMovenments : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        rb.MovePosition(rb.position + movement * speed * Time.fixedDeltaTime);
+        steleton.MovePosition(steleton.position + movement * speed * Time.fixedDeltaTime);
     }
 }
