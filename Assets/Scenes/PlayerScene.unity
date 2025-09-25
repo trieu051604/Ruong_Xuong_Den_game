@@ -154,6 +154,7 @@ MonoBehaviour:
   rb: {fileID: 410642294}
   speed: 5
   animator: {fileID: 410642297}
+  spriteRenderer: {fileID: 410642295}
 --- !u!50 &410642294
 Rigidbody2D:
   serializedVersion: 5
