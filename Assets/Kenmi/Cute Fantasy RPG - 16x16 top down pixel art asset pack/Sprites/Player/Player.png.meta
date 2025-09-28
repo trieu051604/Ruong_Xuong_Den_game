@@ -1,9 +1,16 @@
 fileFormatVersion: 2
 guid: d64fdee322d99594386840d1d5369625
+AssetOrigin:
+  serializedVersion: 1
+  productId: 295726
+  packageName: Cute Fantasy RPG - 16x16 top down pixel art asset pack
+  packageVersion: 1.0
+  assetPath: Assets/Kenmi/Cute Fantasy RPG - 16x16 top down pixel art asset pack/Sprites/Player/Player.png
+  uploadId: 694123
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 12
+  serializedVersion: 13
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -20,11 +27,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -63,9 +71,10 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
   cookieLightType: 0
   platformSettings:
-  - serializedVersion: 3
+  - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -75,9 +84,10 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
+  - serializedVersion: 4
     buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -87,9 +97,10 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
+  - serializedVersion: 4
     buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -99,6 +110,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -108,13 +120,14 @@ TextureImporter:
       name: Player_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 768
-        width: 32
-        height: 32
+        x: 9
+        y: 775
+        width: 13
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -129,13 +142,14 @@ TextureImporter:
       name: Player_1
       rect:
         serializedVersion: 2
-        x: 32
-        y: 768
-        width: 32
-        height: 32
+        x: 41
+        y: 775
+        width: 13
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -150,13 +164,14 @@ TextureImporter:
       name: Player_2
       rect:
         serializedVersion: 2
-        x: 64
-        y: 768
-        width: 32
-        height: 32
+        x: 73
+        y: 775
+        width: 13
+        height: 19
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -171,13 +186,14 @@ TextureImporter:
       name: Player_3
       rect:
         serializedVersion: 2
-        x: 96
-        y: 768
-        width: 32
-        height: 32
+        x: 105
+        y: 775
+        width: 13
+        height: 19
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -192,13 +208,14 @@ TextureImporter:
       name: Player_4
       rect:
         serializedVersion: 2
-        x: 128
-        y: 768
-        width: 32
-        height: 32
+        x: 137
+        y: 775
+        width: 13
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -213,13 +230,14 @@ TextureImporter:
       name: Player_5
       rect:
         serializedVersion: 2
-        x: 160
-        y: 768
-        width: 32
-        height: 32
+        x: 169
+        y: 775
+        width: 13
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -234,13 +252,14 @@ TextureImporter:
       name: Player_6
       rect:
         serializedVersion: 2
-        x: 0
-        y: 736
-        width: 32
-        height: 32
+        x: 10
+        y: 743
+        width: 13
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -255,13 +274,14 @@ TextureImporter:
       name: Player_7
       rect:
         serializedVersion: 2
-        x: 32
-        y: 736
-        width: 32
-        height: 32
+        x: 42
+        y: 743
+        width: 13
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -276,13 +296,14 @@ TextureImporter:
       name: Player_8
       rect:
         serializedVersion: 2
-        x: 64
-        y: 736
-        width: 32
-        height: 32
+        x: 74
+        y: 743
+        width: 13
+        height: 19
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -297,13 +318,14 @@ TextureImporter:
       name: Player_9
       rect:
         serializedVersion: 2
-        x: 96
-        y: 736
-        width: 32
-        height: 32
+        x: 106
+        y: 743
+        width: 13
+        height: 19
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -318,13 +340,14 @@ TextureImporter:
       name: Player_10
       rect:
         serializedVersion: 2
-        x: 128
-        y: 736
-        width: 32
-        height: 32
+        x: 138
+        y: 743
+        width: 13
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -339,13 +362,14 @@ TextureImporter:
       name: Player_11
       rect:
         serializedVersion: 2
-        x: 160
-        y: 736
-        width: 32
-        height: 32
+        x: 170
+        y: 743
+        width: 13
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -360,13 +384,14 @@ TextureImporter:
       name: Player_12
       rect:
         serializedVersion: 2
-        x: 0
-        y: 704
-        width: 32
-        height: 32
+        x: 9
+        y: 711
+        width: 13
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -381,13 +406,14 @@ TextureImporter:
       name: Player_13
       rect:
         serializedVersion: 2
-        x: 32
-        y: 704
-        width: 32
-        height: 32
+        x: 41
+        y: 711
+        width: 13
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -402,13 +428,14 @@ TextureImporter:
       name: Player_14
       rect:
         serializedVersion: 2
-        x: 64
-        y: 704
-        width: 32
-        height: 32
+        x: 73
+        y: 711
+        width: 13
+        height: 19
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -423,13 +450,14 @@ TextureImporter:
       name: Player_15
       rect:
         serializedVersion: 2
-        x: 96
-        y: 704
-        width: 32
-        height: 32
+        x: 105
+        y: 711
+        width: 13
+        height: 19
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -444,13 +472,14 @@ TextureImporter:
       name: Player_16
       rect:
         serializedVersion: 2
-        x: 128
-        y: 704
-        width: 32
-        height: 32
+        x: 137
+        y: 711
+        width: 13
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -465,13 +494,14 @@ TextureImporter:
       name: Player_17
       rect:
         serializedVersion: 2
-        x: 160
-        y: 704
-        width: 32
-        height: 32
+        x: 169
+        y: 711
+        width: 13
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -486,13 +516,14 @@ TextureImporter:
       name: Player_18
       rect:
         serializedVersion: 2
-        x: 0
-        y: 672
-        width: 32
-        height: 32
+        x: 9
+        y: 679
+        width: 13
+        height: 22
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -507,13 +538,14 @@ TextureImporter:
       name: Player_19
       rect:
         serializedVersion: 2
-        x: 32
-        y: 672
-        width: 32
-        height: 32
+        x: 41
+        y: 679
+        width: 13
+        height: 21
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -528,13 +560,14 @@ TextureImporter:
       name: Player_20
       rect:
         serializedVersion: 2
-        x: 64
-        y: 672
-        width: 32
-        height: 32
+        x: 73
+        y: 679
+        width: 13
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -549,13 +582,14 @@ TextureImporter:
       name: Player_21
       rect:
         serializedVersion: 2
-        x: 96
-        y: 672
-        width: 32
-        height: 32
+        x: 105
+        y: 679
+        width: 13
+        height: 22
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -570,13 +604,14 @@ TextureImporter:
       name: Player_22
       rect:
         serializedVersion: 2
-        x: 128
-        y: 672
-        width: 32
-        height: 32
+        x: 137
+        y: 679
+        width: 13
+        height: 21
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -591,13 +626,14 @@ TextureImporter:
       name: Player_23
       rect:
         serializedVersion: 2
-        x: 160
-        y: 672
-        width: 32
-        height: 32
+        x: 169
+        y: 679
+        width: 13
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -612,13 +648,14 @@ TextureImporter:
       name: Player_24
       rect:
         serializedVersion: 2
-        x: 0
-        y: 640
-        width: 32
-        height: 32
+        x: 10
+        y: 647
+        width: 13
+        height: 22
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -633,13 +670,14 @@ TextureImporter:
       name: Player_25
       rect:
         serializedVersion: 2
-        x: 32
-        y: 640
-        width: 32
-        height: 32
+        x: 42
+        y: 647
+        width: 13
+        height: 21
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -654,13 +692,14 @@ TextureImporter:
       name: Player_26
       rect:
         serializedVersion: 2
-        x: 64
-        y: 640
-        width: 32
-        height: 32
+        x: 74
+        y: 647
+        width: 13
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -675,13 +714,14 @@ TextureImporter:
       name: Player_27
       rect:
         serializedVersion: 2
-        x: 96
-        y: 640
-        width: 32
-        height: 32
+        x: 106
+        y: 647
+        width: 13
+        height: 22
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -696,13 +736,14 @@ TextureImporter:
       name: Player_28
       rect:
         serializedVersion: 2
-        x: 128
-        y: 640
-        width: 32
-        height: 32
+        x: 138
+        y: 647
+        width: 13
+        height: 21
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -717,13 +758,14 @@ TextureImporter:
       name: Player_29
       rect:
         serializedVersion: 2
-        x: 160
-        y: 640
-        width: 32
-        height: 32
+        x: 170
+        y: 647
+        width: 13
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -738,13 +780,14 @@ TextureImporter:
       name: Player_30
       rect:
         serializedVersion: 2
-        x: 0
-        y: 608
-        width: 32
-        height: 32
+        x: 9
+        y: 615
+        width: 13
+        height: 22
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -759,13 +802,14 @@ TextureImporter:
       name: Player_31
       rect:
         serializedVersion: 2
-        x: 32
-        y: 608
-        width: 32
-        height: 32
+        x: 41
+        y: 615
+        width: 13
+        height: 21
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -780,13 +824,14 @@ TextureImporter:
       name: Player_32
       rect:
         serializedVersion: 2
-        x: 64
-        y: 608
-        width: 32
-        height: 32
+        x: 73
+        y: 615
+        width: 13
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -801,13 +846,14 @@ TextureImporter:
       name: Player_33
       rect:
         serializedVersion: 2
-        x: 96
-        y: 608
-        width: 32
-        height: 32
+        x: 105
+        y: 615
+        width: 13
+        height: 22
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -822,13 +868,14 @@ TextureImporter:
       name: Player_34
       rect:
         serializedVersion: 2
-        x: 128
-        y: 608
-        width: 32
-        height: 32
+        x: 137
+        y: 615
+        width: 13
+        height: 21
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -843,13 +890,14 @@ TextureImporter:
       name: Player_35
       rect:
         serializedVersion: 2
-        x: 160
-        y: 608
-        width: 32
-        height: 32
+        x: 169
+        y: 615
+        width: 13
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -864,13 +912,14 @@ TextureImporter:
       name: Player_36
       rect:
         serializedVersion: 2
-        x: 0
-        y: 576
-        width: 32
-        height: 32
+        x: 6
+        y: 583
+        width: 16
+        height: 19
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -888,10 +937,11 @@ TextureImporter:
         x: 32
         y: 576
         width: 32
-        height: 32
+        height: 27
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -906,13 +956,14 @@ TextureImporter:
       name: Player_38
       rect:
         serializedVersion: 2
-        x: 64
-        y: 576
-        width: 32
-        height: 32
+        x: 73
+        y: 583
+        width: 17
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -927,13 +978,14 @@ TextureImporter:
       name: Player_39
       rect:
         serializedVersion: 2
-        x: 96
-        y: 576
-        width: 32
-        height: 32
+        x: 87
+        y: 583
+        width: 6
+        height: 11
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -948,13 +1000,14 @@ TextureImporter:
       name: Player_40
       rect:
         serializedVersion: 2
-        x: 0
-        y: 544
-        width: 32
-        height: 32
+        x: 105
+        y: 583
+        width: 13
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -969,13 +1022,14 @@ TextureImporter:
       name: Player_41
       rect:
         serializedVersion: 2
-        x: 32
-        y: 544
-        width: 32
-        height: 32
+        x: 9
+        y: 551
+        width: 16
+        height: 19
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -990,13 +1044,14 @@ TextureImporter:
       name: Player_42
       rect:
         serializedVersion: 2
-        x: 64
+        x: 32
         y: 544
         width: 32
-        height: 32
+        height: 27
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -1011,13 +1066,14 @@ TextureImporter:
       name: Player_43
       rect:
         serializedVersion: 2
-        x: 96
-        y: 544
-        width: 32
-        height: 32
+        x: 67
+        y: 551
+        width: 19
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -1032,13 +1088,14 @@ TextureImporter:
       name: Player_44
       rect:
         serializedVersion: 2
-        x: 0
-        y: 512
-        width: 32
-        height: 32
+        x: 105
+        y: 551
+        width: 13
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -1053,13 +1110,14 @@ TextureImporter:
       name: Player_45
       rect:
         serializedVersion: 2
-        x: 32
-        y: 512
-        width: 32
-        height: 32
+        x: 2
+        y: 519
+        width: 20
+        height: 19
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -1074,13 +1132,14 @@ TextureImporter:
       name: Player_46
       rect:
         serializedVersion: 2
-        x: 64
-        y: 512
-        width: 32
-        height: 32
+        x: 34
+        y: 513
+        width: 20
+        height: 26
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -1095,13 +1154,14 @@ TextureImporter:
       name: Player_47
       rect:
         serializedVersion: 2
-        x: 96
-        y: 512
-        width: 32
-        height: 32
+        x: 72
+        y: 514
+        width: 14
+        height: 25
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -1116,13 +1176,14 @@ TextureImporter:
       name: Player_48
       rect:
         serializedVersion: 2
-        x: 0
-        y: 480
-        width: 32
-        height: 32
+        x: 105
+        y: 519
+        width: 13
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -1137,13 +1198,14 @@ TextureImporter:
       name: Player_49
       rect:
         serializedVersion: 2
-        x: 32
-        y: 480
-        width: 32
-        height: 32
+        x: 10
+        y: 487
+        width: 16
+        height: 19
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -1158,13 +1220,14 @@ TextureImporter:
       name: Player_50
       rect:
         serializedVersion: 2
-        x: 64
-        y: 480
-        width: 32
-        height: 32
+        x: 34
+        y: 482
+        width: 30
+        height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -1179,13 +1242,14 @@ TextureImporter:
       name: Player_51
       rect:
         serializedVersion: 2
-        x: 96
-        y: 480
-        width: 32
-        height: 32
+        x: 69
+        y: 485
+        width: 18
+        height: 21
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -1200,13 +1264,14 @@ TextureImporter:
       name: Player_52
       rect:
         serializedVersion: 2
-        x: 0
-        y: 448
-        width: 32
-        height: 32
+        x: 106
+        y: 487
+        width: 13
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -1221,13 +1286,14 @@ TextureImporter:
       name: Player_53
       rect:
         serializedVersion: 2
-        x: 32
-        y: 448
-        width: 32
-        height: 32
+        x: 6
+        y: 455
+        width: 16
+        height: 19
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -1242,13 +1308,14 @@ TextureImporter:
       name: Player_54
       rect:
         serializedVersion: 2
-        x: 64
-        y: 448
-        width: 32
-        height: 32
+        x: 36
+        y: 450
+        width: 28
+        height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -1263,13 +1330,14 @@ TextureImporter:
       name: Player_55
       rect:
         serializedVersion: 2
-        x: 96
-        y: 448
-        width: 32
-        height: 32
+        x: 74
+        y: 455
+        width: 13
+        height: 19
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -1284,13 +1352,14 @@ TextureImporter:
       name: Player_56
       rect:
         serializedVersion: 2
-        x: 0
-        y: 416
-        width: 32
-        height: 32
+        x: 92
+        y: 455
+        width: 4
+        height: 10
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -1305,13 +1374,14 @@ TextureImporter:
       name: Player_57
       rect:
         serializedVersion: 2
-        x: 32
-        y: 416
-        width: 32
-        height: 32
+        x: 106
+        y: 455
+        width: 13
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -1326,13 +1396,14 @@ TextureImporter:
       name: Player_58
       rect:
         serializedVersion: 2
-        x: 64
-        y: 416
-        width: 32
-        height: 32
+        x: 8
+        y: 422
+        width: 14
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -1347,13 +1418,14 @@ TextureImporter:
       name: Player_59
       rect:
         serializedVersion: 2
-        x: 96
-        y: 416
-        width: 32
-        height: 32
+        x: 42
+        y: 423
+        width: 22
+        height: 19
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -1368,13 +1440,14 @@ TextureImporter:
       name: Player_60
       rect:
         serializedVersion: 2
-        x: 0
-        y: 384
-        width: 32
-        height: 32
+        x: 74
+        y: 423
+        width: 13
+        height: 19
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -1389,13 +1462,14 @@ TextureImporter:
       name: Player_61
       rect:
         serializedVersion: 2
-        x: 32
-        y: 384
-        width: 32
-        height: 32
+        x: 89
+        y: 425
+        width: 6
+        height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -1410,13 +1484,14 @@ TextureImporter:
       name: Player_62
       rect:
         serializedVersion: 2
-        x: 64
-        y: 384
-        width: 32
-        height: 32
+        x: 106
+        y: 423
+        width: 13
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -1431,13 +1506,14 @@ TextureImporter:
       name: Player_63
       rect:
         serializedVersion: 2
-        x: 96
-        y: 384
-        width: 32
-        height: 32
+        x: 9
+        y: 391
+        width: 15
+        height: 19
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -1452,13 +1528,14 @@ TextureImporter:
       name: Player_64
       rect:
         serializedVersion: 2
-        x: 0
-        y: 352
+        x: 32
+        y: 391
         width: 32
-        height: 32
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -1473,13 +1550,14 @@ TextureImporter:
       name: Player_65
       rect:
         serializedVersion: 2
-        x: 32
-        y: 352
-        width: 32
-        height: 32
+        x: 66
+        y: 392
+        width: 6
+        height: 11
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -1494,13 +1572,14 @@ TextureImporter:
       name: Player_66
       rect:
         serializedVersion: 2
-        x: 64
-        y: 352
-        width: 32
-        height: 32
+        x: 70
+        y: 391
+        width: 16
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -1515,13 +1594,14 @@ TextureImporter:
       name: Player_67
       rect:
         serializedVersion: 2
-        x: 96
-        y: 352
-        width: 32
-        height: 32
+        x: 105
+        y: 391
+        width: 13
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -1536,13 +1616,14 @@ TextureImporter:
       name: Player_68
       rect:
         serializedVersion: 2
-        x: 0
-        y: 320
-        width: 32
-        height: 32
+        x: 7
+        y: 359
+        width: 15
+        height: 19
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -1558,12 +1639,13 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 32
-        y: 320
+        y: 359
         width: 32
-        height: 32
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -1578,13 +1660,14 @@ TextureImporter:
       name: Player_70
       rect:
         serializedVersion: 2
-        x: 64
-        y: 320
-        width: 32
-        height: 32
+        x: 73
+        y: 359
+        width: 16
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -1599,13 +1682,14 @@ TextureImporter:
       name: Player_71
       rect:
         serializedVersion: 2
-        x: 96
-        y: 320
-        width: 32
-        height: 32
+        x: 87
+        y: 360
+        width: 6
+        height: 11
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -1620,13 +1704,14 @@ TextureImporter:
       name: Player_72
       rect:
         serializedVersion: 2
-        x: 0
-        y: 288
-        width: 32
-        height: 32
+        x: 105
+        y: 359
+        width: 13
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -1641,13 +1726,14 @@ TextureImporter:
       name: Player_73
       rect:
         serializedVersion: 2
-        x: 32
-        y: 288
-        width: 32
-        height: 32
+        x: 9
+        y: 327
+        width: 19
+        height: 19
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -1662,13 +1748,14 @@ TextureImporter:
       name: Player_74
       rect:
         serializedVersion: 2
-        x: 64
-        y: 288
-        width: 32
-        height: 32
+        x: 41
+        y: 327
+        width: 21
+        height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -1683,13 +1770,14 @@ TextureImporter:
       name: Player_75
       rect:
         serializedVersion: 2
-        x: 96
-        y: 288
-        width: 32
-        height: 32
+        x: 73
+        y: 327
+        width: 13
+        height: 23
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -1704,13 +1792,14 @@ TextureImporter:
       name: Player_76
       rect:
         serializedVersion: 2
-        x: 0
-        y: 256
-        width: 32
-        height: 32
+        x: 105
+        y: 327
+        width: 13
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -1725,13 +1814,14 @@ TextureImporter:
       name: Player_77
       rect:
         serializedVersion: 2
-        x: 32
-        y: 256
-        width: 32
-        height: 32
+        x: 10
+        y: 295
+        width: 13
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -1746,13 +1836,14 @@ TextureImporter:
       name: Player_78
       rect:
         serializedVersion: 2
-        x: 64
-        y: 256
-        width: 32
-        height: 32
+        x: 42
+        y: 295
+        width: 15
+        height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -1767,13 +1858,14 @@ TextureImporter:
       name: Player_79
       rect:
         serializedVersion: 2
-        x: 96
-        y: 256
-        width: 32
-        height: 32
+        x: 74
+        y: 295
+        width: 17
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -1788,13 +1880,14 @@ TextureImporter:
       name: Player_80
       rect:
         serializedVersion: 2
-        x: 0
-        y: 224
-        width: 32
-        height: 32
+        x: 106
+        y: 295
+        width: 17
+        height: 14
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -1809,13 +1902,14 @@ TextureImporter:
       name: Player_81
       rect:
         serializedVersion: 2
-        x: 32
-        y: 224
-        width: 32
-        height: 32
+        x: 9
+        y: 263
+        width: 13
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -1830,13 +1924,14 @@ TextureImporter:
       name: Player_82
       rect:
         serializedVersion: 2
-        x: 64
-        y: 224
-        width: 32
-        height: 32
+        x: 41
+        y: 263
+        width: 13
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -1851,13 +1946,14 @@ TextureImporter:
       name: Player_83
       rect:
         serializedVersion: 2
-        x: 96
-        y: 224
-        width: 32
-        height: 32
+        x: 73
+        y: 263
+        width: 13
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -1872,13 +1968,14 @@ TextureImporter:
       name: Player_84
       rect:
         serializedVersion: 2
-        x: 0
-        y: 192
-        width: 32
-        height: 32
+        x: 105
+        y: 263
+        width: 13
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -1893,13 +1990,14 @@ TextureImporter:
       name: Player_85
       rect:
         serializedVersion: 2
-        x: 32
-        y: 192
-        width: 32
-        height: 32
+        x: 10
+        y: 231
+        width: 13
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -1914,13 +2012,14 @@ TextureImporter:
       name: Player_86
       rect:
         serializedVersion: 2
-        x: 64
-        y: 192
-        width: 32
-        height: 32
+        x: 42
+        y: 231
+        width: 13
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -1935,13 +2034,14 @@ TextureImporter:
       name: Player_87
       rect:
         serializedVersion: 2
-        x: 96
-        y: 192
-        width: 32
-        height: 32
+        x: 74
+        y: 231
+        width: 13
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -1956,13 +2056,14 @@ TextureImporter:
       name: Player_88
       rect:
         serializedVersion: 2
-        x: 0
-        y: 160
-        width: 32
-        height: 32
+        x: 106
+        y: 231
+        width: 13
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -1977,13 +2078,14 @@ TextureImporter:
       name: Player_89
       rect:
         serializedVersion: 2
-        x: 32
-        y: 160
-        width: 32
-        height: 32
+        x: 9
+        y: 199
+        width: 13
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -1998,13 +2100,14 @@ TextureImporter:
       name: Player_90
       rect:
         serializedVersion: 2
-        x: 64
-        y: 160
-        width: 32
-        height: 32
+        x: 41
+        y: 199
+        width: 13
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -2019,13 +2122,14 @@ TextureImporter:
       name: Player_91
       rect:
         serializedVersion: 2
-        x: 96
-        y: 160
-        width: 32
-        height: 32
+        x: 73
+        y: 199
+        width: 13
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -2040,13 +2144,14 @@ TextureImporter:
       name: Player_92
       rect:
         serializedVersion: 2
-        x: 128
-        y: 160
-        width: 32
-        height: 32
+        x: 105
+        y: 199
+        width: 13
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -2061,13 +2166,14 @@ TextureImporter:
       name: Player_93
       rect:
         serializedVersion: 2
-        x: 160
+        x: 8
         y: 160
-        width: 32
-        height: 32
+        width: 16
+        height: 26
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -2082,13 +2188,14 @@ TextureImporter:
       name: Player_94
       rect:
         serializedVersion: 2
-        x: 0
-        y: 128
-        width: 32
-        height: 32
+        x: 41
+        y: 165
+        width: 14
+        height: 22
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -2103,13 +2210,14 @@ TextureImporter:
       name: Player_95
       rect:
         serializedVersion: 2
-        x: 32
-        y: 128
-        width: 32
-        height: 32
+        x: 73
+        y: 166
+        width: 13
+        height: 21
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -2124,13 +2232,14 @@ TextureImporter:
       name: Player_96
       rect:
         serializedVersion: 2
-        x: 64
-        y: 128
-        width: 32
-        height: 32
+        x: 104
+        y: 166
+        width: 16
+        height: 21
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -2145,13 +2254,14 @@ TextureImporter:
       name: Player_97
       rect:
         serializedVersion: 2
-        x: 96
-        y: 128
-        width: 32
-        height: 32
+        x: 136
+        y: 166
+        width: 16
+        height: 21
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -2166,13 +2276,14 @@ TextureImporter:
       name: Player_98
       rect:
         serializedVersion: 2
-        x: 128
-        y: 128
-        width: 32
-        height: 32
+        x: 168
+        y: 166
+        width: 16
+        height: 21
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -2187,13 +2298,14 @@ TextureImporter:
       name: Player_99
       rect:
         serializedVersion: 2
-        x: 160
-        y: 128
-        width: 32
-        height: 32
+        x: 10
+        y: 135
+        width: 22
+        height: 19
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -2208,13 +2320,14 @@ TextureImporter:
       name: Player_100
       rect:
         serializedVersion: 2
-        x: 0
-        y: 96
-        width: 32
-        height: 32
+        x: 42
+        y: 135
+        width: 18
+        height: 19
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -2229,13 +2342,14 @@ TextureImporter:
       name: Player_101
       rect:
         serializedVersion: 2
-        x: 32
-        y: 96
-        width: 32
-        height: 32
+        x: 73
+        y: 135
+        width: 17
+        height: 19
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -2250,13 +2364,14 @@ TextureImporter:
       name: Player_102
       rect:
         serializedVersion: 2
-        x: 64
-        y: 96
-        width: 32
-        height: 32
+        x: 104
+        y: 135
+        width: 19
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -2271,13 +2386,14 @@ TextureImporter:
       name: Player_103
       rect:
         serializedVersion: 2
-        x: 96
-        y: 96
-        width: 32
-        height: 32
+        x: 137
+        y: 135
+        width: 18
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -2292,13 +2408,14 @@ TextureImporter:
       name: Player_104
       rect:
         serializedVersion: 2
-        x: 128
-        y: 96
-        width: 32
-        height: 32
+        x: 170
+        y: 135
+        width: 17
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -2313,13 +2430,14 @@ TextureImporter:
       name: Player_105
       rect:
         serializedVersion: 2
-        x: 160
-        y: 96
-        width: 32
-        height: 32
+        x: 8
+        y: 103
+        width: 16
+        height: 25
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -2334,13 +2452,14 @@ TextureImporter:
       name: Player_106
       rect:
         serializedVersion: 2
-        x: 0
-        y: 64
-        width: 32
-        height: 32
+        x: 41
+        y: 103
+        width: 14
+        height: 22
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -2355,13 +2474,14 @@ TextureImporter:
       name: Player_107
       rect:
         serializedVersion: 2
-        x: 32
-        y: 64
-        width: 32
-        height: 32
+        x: 73
+        y: 103
+        width: 13
+        height: 22
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -2376,13 +2496,14 @@ TextureImporter:
       name: Player_108
       rect:
         serializedVersion: 2
-        x: 64
-        y: 64
-        width: 32
-        height: 32
+        x: 104
+        y: 103
+        width: 16
+        height: 22
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -2397,13 +2518,14 @@ TextureImporter:
       name: Player_109
       rect:
         serializedVersion: 2
-        x: 96
-        y: 64
-        width: 32
-        height: 32
+        x: 136
+        y: 103
+        width: 16
+        height: 22
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -2418,13 +2540,14 @@ TextureImporter:
       name: Player_110
       rect:
         serializedVersion: 2
-        x: 128
-        y: 64
-        width: 32
-        height: 32
+        x: 168
+        y: 103
+        width: 16
+        height: 22
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -2439,13 +2562,14 @@ TextureImporter:
       name: Player_111
       rect:
         serializedVersion: 2
-        x: 160
-        y: 64
-        width: 32
-        height: 32
+        x: 9
+        y: 71
+        width: 13
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -2460,13 +2584,14 @@ TextureImporter:
       name: Player_112
       rect:
         serializedVersion: 2
-        x: 0
-        y: 32
-        width: 32
-        height: 32
+        x: 41
+        y: 71
+        width: 13
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -2481,13 +2606,14 @@ TextureImporter:
       name: Player_113
       rect:
         serializedVersion: 2
-        x: 32
-        y: 32
-        width: 32
-        height: 32
+        x: 73
+        y: 71
+        width: 13
+        height: 19
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -2502,13 +2628,14 @@ TextureImporter:
       name: Player_114
       rect:
         serializedVersion: 2
-        x: 64
-        y: 32
-        width: 32
-        height: 32
+        x: 105
+        y: 71
+        width: 13
+        height: 19
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -2523,13 +2650,14 @@ TextureImporter:
       name: Player_115
       rect:
         serializedVersion: 2
-        x: 96
-        y: 32
-        width: 32
-        height: 32
+        x: 137
+        y: 71
+        width: 13
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -2544,13 +2672,14 @@ TextureImporter:
       name: Player_116
       rect:
         serializedVersion: 2
-        x: 128
-        y: 32
-        width: 32
-        height: 32
+        x: 169
+        y: 71
+        width: 13
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -2565,13 +2694,14 @@ TextureImporter:
       name: Player_117
       rect:
         serializedVersion: 2
-        x: 160
-        y: 32
-        width: 32
-        height: 32
+        x: 10
+        y: 39
+        width: 13
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -2586,13 +2716,14 @@ TextureImporter:
       name: Player_118
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 32
-        height: 32
+        x: 42
+        y: 39
+        width: 13
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -2607,13 +2738,14 @@ TextureImporter:
       name: Player_119
       rect:
         serializedVersion: 2
-        x: 32
-        y: 0
-        width: 32
-        height: 32
+        x: 74
+        y: 39
+        width: 13
+        height: 19
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -2628,13 +2760,14 @@ TextureImporter:
       name: Player_120
       rect:
         serializedVersion: 2
-        x: 64
-        y: 0
-        width: 32
-        height: 32
+        x: 106
+        y: 39
+        width: 13
+        height: 19
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -2649,13 +2782,14 @@ TextureImporter:
       name: Player_121
       rect:
         serializedVersion: 2
-        x: 96
-        y: 0
-        width: 32
-        height: 32
+        x: 138
+        y: 39
+        width: 13
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -2670,13 +2804,14 @@ TextureImporter:
       name: Player_122
       rect:
         serializedVersion: 2
-        x: 128
-        y: 0
-        width: 32
-        height: 32
+        x: 170
+        y: 39
+        width: 13
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -2691,13 +2826,14 @@ TextureImporter:
       name: Player_123
       rect:
         serializedVersion: 2
-        x: 160
-        y: 0
-        width: 32
-        height: 32
+        x: 9
+        y: 7
+        width: 13
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -2712,13 +2848,14 @@ TextureImporter:
       name: Player_124
       rect:
         serializedVersion: 2
-        x: 192
-        y: 0
-        width: 32
-        height: 32
+        x: 41
+        y: 7
+        width: 14
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -2733,13 +2870,14 @@ TextureImporter:
       name: Player_125
       rect:
         serializedVersion: 2
-        x: 224
-        y: 0
-        width: 32
-        height: 32
+        x: 73
+        y: 7
+        width: 15
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -2750,7 +2888,118 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Player_126
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 7
+        width: 14
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d431520441e6b7c428c0007d40e377fe
+      internalID: 103335963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_127
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 7
+        width: 13
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21783540a6f7fd049ae976e2513e846d
+      internalID: 746013568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_128
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 7
+        width: 14
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8cb5920788a82834999893bcf913f451
+      internalID: 1891780986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_129
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 7
+        width: 15
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a196f6f4ad52a743b449f5c60ccbf1c
+      internalID: 1967060701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_130
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 7
+        width: 14
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 643a884d0fc1f66458c3e1b83a77250f
+      internalID: 1821590948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
+    customData: 
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
@@ -2760,6 +3009,10 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       Player_0: 1209683134
       Player_1: -2017810120
@@ -2792,7 +3045,12 @@ TextureImporter:
       Player_123: -1676307157
       Player_124: -1337359257
       Player_125: 891102383
+      Player_126: 103335963
+      Player_127: 746013568
+      Player_128: 1891780986
+      Player_129: 1967060701
       Player_13: 1491945574
+      Player_130: 1821590948
       Player_14: 1404577210
       Player_15: 1183630270
       Player_16: 1271195366
@@ -2887,16 +3145,8 @@ TextureImporter:
       Player_97: 1327401309
       Player_98: 1093317655
       Player_99: 1157386723
-  spritePackingTag: 
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 295726
-  packageName: Cute Fantasy RPG - 16x16 top down pixel art asset pack
-  packageVersion: 1.0
-  assetPath: Assets/Kenmi/Cute Fantasy RPG - 16x16 top down pixel art asset pack/Sprites/Player/Player.png
-  uploadId: 694123
