@@ -9,6 +9,7 @@ public class PlayMovenments : MonoBehaviour
   
     private Vector2 movement;
     public SpriteRenderer spriteRenderer;
+    private bool isAttacking = false;
 
 
     // Update is called once per frame
@@ -27,11 +28,29 @@ public class PlayMovenments : MonoBehaviour
             spriteRenderer.flipX = movement.x < 0;
         }
 
-
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            StartAttack();
+        }
 
     }
+
+
     private void FixedUpdate()
     {
         rb.MovePosition(rb.position + movement * speed * Time.fixedDeltaTime);
+    }
+
+    void StartAttack()
+    {
+        isAttacking = true;
+        animator.SetBool("IsAttacking", true);
+    }
+
+    // Hàm này gọi từ Animation Event cuối clip tấn công
+    public void EndAttack()
+    {
+        isAttacking = false;
+        animator.SetBool("IsAttacking", false);
     }
 }
