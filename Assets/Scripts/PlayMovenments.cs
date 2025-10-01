@@ -8,8 +8,13 @@ public class PlayMovenments : MonoBehaviour
     public Animator animator;
 
     private Vector2 movement;
+    public SpriteRenderer spriteRenderer;
 
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> origin/develop
     // Update is called once per frame
     void Update()
     {
@@ -20,6 +25,17 @@ public class PlayMovenments : MonoBehaviour
         animator.SetFloat("Vertical", movement.y);
         animator.SetFloat("Speed", movement.sqrMagnitude);
 
+<<<<<<< HEAD
+=======
+
+        if (movement.x != 0)
+        {
+            spriteRenderer.flipX = movement.x < 0;
+        }
+
+
+
+>>>>>>> origin/develop
     }
     private void FixedUpdate()
     {
