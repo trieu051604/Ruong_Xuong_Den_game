@@ -5,7 +5,6 @@ public class Skeleton_Move : MonoBehaviour
     public Rigidbody2D rb;
     public float speed = 2f;
 
-    // Giới hạn bản đồ
     public float minX = -5f;
     public float maxX = 5f;
     public float minY = -5f;

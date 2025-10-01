@@ -11,10 +11,7 @@ public class PlayMovenments : MonoBehaviour
     public SpriteRenderer spriteRenderer;
 
 
-<<<<<<< HEAD
 
-=======
->>>>>>> origin/develop
     // Update is called once per frame
     void Update()
     {
@@ -25,8 +22,6 @@ public class PlayMovenments : MonoBehaviour
         animator.SetFloat("Vertical", movement.y);
         animator.SetFloat("Speed", movement.sqrMagnitude);
 
-<<<<<<< HEAD
-=======
 
         if (movement.x != 0)
         {
@@ -35,7 +30,6 @@ public class PlayMovenments : MonoBehaviour
 
 
 
->>>>>>> origin/develop
     }
     private void FixedUpdate()
     {
