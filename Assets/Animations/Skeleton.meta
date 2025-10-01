@@ -1,6 +1,10 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/_Recovery/0.unity.meta
+guid: 8f35e77185bb70f4285725edc0831653
+========
 guid: 5cf170d53f2081642aa9f968ec6a7253
 folderAsset: yes
+>>>>>>>> 674fae6 (change move):Assets/Animations/Skeleton.meta
 DefaultImporter:
   externalObjects: {}
   userData: 
