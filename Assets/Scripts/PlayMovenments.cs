@@ -17,6 +17,9 @@ public class PlayMovenments : MonoBehaviour
     // hướng tấn công cuối cùng
     private Vector2 attackDirection = Vector2.down; // mặc định xuống
 
+    public static PlayMovenments Instance { get; private set; }
+
+
     void Update()
     {
         movement.x = Input.GetAxisRaw("Horizontal");
