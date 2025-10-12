@@ -2,96 +2,292 @@
 
 public class Skeleton : MonoBehaviour
 {
+    // Core Components & Stats 
     public Rigidbody2D rb;
-    public float speed = 5f;
+    public float speed = 3f;
+    public Animator animator;
+    public SpriteRenderer spriteRenderer;
 
-    // Map boundaries
-    public float minX = -5f;
-    public float maxX = 5f;
-    public float minY = -5f;
-    public float maxY = 5f;
+    // AI Behavior Variables 
+    public float detectionRange = 8f;   // Range to detect the player
+    public float attackRange = 1.5f;    // Range to attack the player
+    public float attackCooldown = 2f;   // Cooldown between attacks
+    public float attackDamage = 10f;    // Damage dealt to player
+    public LayerMask playerLayer = 1;   // Layer mask for player detection
 
-    private Vector2 movement;
-    private float changeDirectionTime = 2f; // how often to change direction or idle
+    private Transform playerTransform;      // Reference to the player's transform
+    private float lastAttackTime = -999f;   // The time of the last attack
+    private bool isAttacking = false;       // Is currently attacking
+
+    //  Wander State Variables 
+    private Vector2 wanderMovement;
+    private float changeDirectionTime = 2f;
     private float timer;
 
-    [Header("Animation")]
-    public Animator animator;             // Reference to Animator (to control animations)
-    public SpriteRenderer spriteRenderer; // Reference to SpriteRenderer (to flip sprite)
+    // current movement applied in FixedUpdate
+    private Vector2 currentMovement;
+
+    // State Machine for AI
+    private enum State { Wander, Chase, Attack }
+    private State currentState;
 
     void Start()
     {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player != null)
+        {
+            playerTransform = player.transform;
+        }
+
         timer = changeDirectionTime;
-        PickRandomState();
+        currentState = State.Wander;
+
+        // Safety: ensure Rigidbody2D physics won't rotate or be affected by gravity
+        if (rb != null)
+        {
+            rb.gravityScale = 0f;
+            rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+            rb.angularVelocity = 0f;
+            rb.linearVelocity = Vector2.zero;
+        }
     }
 
     void Update()
     {
-        // Countdown timer for changing movement state
+        if (playerTransform == null)
+        {
+            currentState = State.Wander;
+            Wander();
+            return;
+        }
+
+        float distanceToPlayer = Vector2.Distance(transform.position, playerTransform.position);
+
+        switch (currentState)
+        {
+            case State.Wander:
+                Wander();
+
+                if (distanceToPlayer < detectionRange)
+                {
+                    currentState = State.Chase;
+                }
+                break;
+
+            case State.Chase:
+                // Chỉ chase khi không đang tấn công
+                if (!isAttacking)
+                {
+                    Chase();
+                }
+
+                if (distanceToPlayer <= attackRange && !isAttacking)
+                {
+                    currentState = State.Attack;
+                }
+                else if (distanceToPlayer > detectionRange * 1.2f) // Thêm hysteresis để tránh flickering
+                {
+                    currentState = State.Wander;
+                }
+                break;
+
+            case State.Attack:
+                Attack();
+
+                // Chỉ chuyển state khi không đang tấn công và player đã ra khỏi vùng tấn công
+                if (!isAttacking && distanceToPlayer > attackRange * 1.1f) // Thêm hysteresis
+                {
+                    if (distanceToPlayer <= detectionRange)
+                    {
+                        currentState = State.Chase;
+                    }
+                    else
+                    {
+                        currentState = State.Wander;
+                    }
+                }
+                break;
+        }
+    }
+
+    void Wander()
+    {
+        if (isAttacking) 
+        {
+            currentMovement = Vector2.zero;
+            return; // Không wander khi đang tấn công
+        }
+
+        // Random wandering logic
         timer -= Time.deltaTime;
         if (timer <= 0f)
         {
-            PickRandomState();              // Choose a new random state
-            timer = changeDirectionTime;    // Reset timer
+            PickRandomDirection();
+            timer = changeDirectionTime;
         }
 
-        // Update animator parameters
+        UpdateAnimation(wanderMovement);
+
+        // set movement; actual MovePosition happens in FixedUpdate
+        currentMovement = wanderMovement;
+    }
+
+    void Chase()
+    {
+        if (isAttacking)
+        {
+            currentMovement = Vector2.zero;
+            return; // Không chase khi đang tấn công
+        }
+
+        // Move towards the player
+        Vector2 direction = (playerTransform.position - transform.position).normalized;
+        UpdateAnimation(direction);
+
+        // set movement; actual MovePosition happens in FixedUpdate
+        currentMovement = direction;
+    }
+
+    void Attack()
+    {
+        if (playerTransform == null || isAttacking) return;
+
+        // KHÔNG quay mặt về phía player nữa để tránh xoay vòng vòng
+
+        // Dừng animation di chuyển
+        animator.SetFloat("Horizontal", 0);
+        animator.SetFloat("Vertical", 0);
+        animator.SetFloat("Speed", 0);
+
+        // Tấn công nếu đã hết cooldown
+        if (Time.time >= lastAttackTime + attackCooldown)
+        {
+            Vector2 directionToPlayer = (playerTransform.position - transform.position).normalized;
+            StartAttack(directionToPlayer);
+        }
+
+        // stop movement while attacking
+        currentMovement = Vector2.zero;
+    }
+
+    void FixedUpdate()
+    {
+        // Apply movement via MovePosition in FixedUpdate to avoid conflicts
+        if (rb == null) return;
+
+        if (isAttacking)
+        {
+            rb.linearVelocity = Vector2.zero;
+            return;
+        }
+
+        // Ensure no unexpected velocity
+        rb.linearVelocity = Vector2.zero;
+
+        Vector2 newPos = rb.position + currentMovement * speed * Time.fixedDeltaTime;
+        rb.MovePosition(newPos);
+    }
+
+    void StartAttack(Vector2 attackDirection)
+    {
+        isAttacking = true;
+        lastAttackTime = Time.time;
+
+        // Stop all movement
+        if (rb != null)
+        {
+            rb.linearVelocity = Vector2.zero;
+            rb.angularVelocity = 0f;
+        }
+
+        // Chỉ dùng Attack_Up animation đơn giản
+        animator.SetBool("Attack_Up", true);
+
+        // Perform actual attack damage detection
+        PerformAttackDamage(attackDirection);
+
+        // End attack after animation time
+        Invoke(nameof(EndAttack), 0.6f);
+    }
+
+    void PerformAttackDamage(Vector2 attackDirection)
+    {
+        // Calculate attack position
+        Vector2 attackPosition = (Vector2)transform.position + attackDirection * (attackRange * 0.7f);
+
+        // Detect all colliders in attack range
+        Collider2D[] hitColliders = Physics2D.OverlapCircleAll(attackPosition, attackRange * 0.8f, playerLayer);
+
+        foreach (Collider2D hit in hitColliders)
+        {
+            // Check if it's the player
+            if (hit.CompareTag("Player"))
+            {
+                Debug.Log($"Skeleton attacked {hit.name} for {attackDamage} damage!");
+
+                // Try to damage player using different possible methods
+                hit.SendMessage("TakeDamage", attackDamage, SendMessageOptions.DontRequireReceiver);
+                hit.SendMessage("ApplyDamage", attackDamage, SendMessageOptions.DontRequireReceiver);
+
+                // Visual feedback
+                Debug.Log("Player hit by Skeleton attack!");
+            }
+        }
+    }
+
+    void EndAttack()
+    {
+        isAttacking = false;
+
+        // Tắt animation Attack_Up
+        animator.SetBool("Attack_Up", false);
+    }
+
+    void PickRandomDirection()
+    {
+        int rand = Random.Range(0, 5);
+        switch (rand)
+        {
+            case 0: wanderMovement = Vector2.zero; break;
+            case 1: wanderMovement = Vector2.up; break;
+            case 2: wanderMovement = Vector2.right; break;
+            case 3: wanderMovement = Vector2.down; break;
+            case 4: wanderMovement = Vector2.left; break;
+        }
+    }
+
+    void UpdateAnimation(Vector2 movement)
+    {
         animator.SetFloat("Horizontal", movement.x);
         animator.SetFloat("Vertical", movement.y);
         animator.SetFloat("Speed", movement.sqrMagnitude);
 
-        // Flip sprite when moving left
+        // Flip sprite based on movement direction (for Wander and Chase states)
         if (movement.x != 0)
         {
             spriteRenderer.flipX = movement.x < 0;
         }
     }
 
-    void FixedUpdate()
+
+    void OnDrawGizmosSelected()
     {
-        // Calculate new position based on movement
-        Vector2 newPos = rb.position + movement * speed * Time.fixedDeltaTime;
+        // Detection range
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, detectionRange);
 
-        // Boundary check on X-axis
-        if (newPos.x < minX || newPos.x > maxX)
+        // Attack range
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, attackRange);
+
+        // Attack damage area when attacking
+        if (isAttacking && playerTransform != null)
         {
-            movement.x = -movement.x; // Reverse X direction if hitting boundary
-            newPos.x = Mathf.Clamp(newPos.x, minX, maxX);
-        }
+            Vector2 directionToPlayer = (playerTransform.position - transform.position).normalized;
+            Vector2 attackPos = (Vector2)transform.position + directionToPlayer * (attackRange * 0.7f);
 
-        // Boundary check on Y-axis
-        if (newPos.y < minY || newPos.y > maxY)
-        {
-            movement.y = -movement.y; // Reverse Y direction if hitting boundary
-            newPos.y = Mathf.Clamp(newPos.y, minY, maxY);
-        }
-
-        // Move Rigidbody to the new position
-        rb.MovePosition(newPos);
-    }
-
-    void PickRandomState()
-    {
-        int rand = Random.Range(0, 5);
-        // 0 = idle, 1 = up, 2 = right, 3 = down, 4 = left
-
-        switch (rand)
-        {
-            case 0:
-                movement = Vector2.zero;   // Idle
-                break;
-            case 1:
-                movement = Vector2.up;     // Move up
-                break;
-            case 2:
-                movement = Vector2.right;  // Move right
-                break;
-            case 3:
-                movement = Vector2.down;   // Move down
-                break;
-            case 4:
-                movement = Vector2.left;   // Move left
-                break;
+            Gizmos.color = Color.magenta;
+            Gizmos.DrawWireSphere(attackPos, attackRange * 0.8f);
         }
     }
 }
