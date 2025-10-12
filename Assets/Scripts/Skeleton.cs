@@ -2,6 +2,10 @@
 
 public class Skeleton : MonoBehaviour
 {
+    [Header("Health Settings")]
+    public float maxHealth = 200f;
+    public float currentHealth;
+    public EnemyHealth.EnemyType enemyType = EnemyHealth.EnemyType.Skeleton;
     // Core Components & Stats 
     public Rigidbody2D rb;
     public float speed = 3f;
@@ -33,6 +37,8 @@ public class Skeleton : MonoBehaviour
 
     void Start()
     {
+        // Initialize health
+        currentHealth = maxHealth;
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         if (player != null)
         {
@@ -112,7 +118,7 @@ public class Skeleton : MonoBehaviour
 
     void Wander()
     {
-        if (isAttacking) 
+        if (isAttacking)
         {
             currentMovement = Vector2.zero;
             return; // Không wander khi đang tấn công
@@ -289,5 +295,51 @@ public class Skeleton : MonoBehaviour
             Gizmos.color = Color.magenta;
             Gizmos.DrawWireSphere(attackPos, attackRange * 0.8f);
         }
+    }
+    /// <summary>
+    /// Method called by Player attack system
+    /// </summary>
+    public void TakeDamage(float damage)
+    {
+        currentHealth -= damage;
+        Debug.Log($"Skeleton took {damage} damage. Health: {currentHealth}/{maxHealth}");
+
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
+    }
+
+    /// <summary>
+    /// Alternative method name for compatibility
+    /// </summary>
+    public void ApplyDamage(float damage)
+    {
+        TakeDamage(damage);
+    }
+
+    void Die()
+    {
+        Debug.Log($"Skeleton has died!");
+
+        // Notify LevelManager about enemy death
+        LevelManager levelManager = GetLevelManager();
+        if (levelManager != null)
+        {
+            levelManager.OnEnemyKilled(enemyType);
+        }
+
+        // Destroy the enemy
+        Destroy(gameObject);
+    }
+
+    private LevelManager GetLevelManager()
+    {
+        // Use the newer API when available to avoid the obsolete warning.
+#if UNITY_2023_2_OR_NEWER
+        return FindFirstObjectByType<LevelManager>();
+#else
+            return FindObjectOfType<LevelManager>();
+#endif
     }
 }

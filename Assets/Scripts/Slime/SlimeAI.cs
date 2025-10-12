@@ -4,9 +4,15 @@ using UnityEngine;
 
 public class SlimeAI : MonoBehaviour
 {
+    [Header("Health Settings")]
+    public float maxHealth = 50f;
+    public float currentHealth;
+    public EnemyHealth.EnemyType enemyType = EnemyHealth.EnemyType.Slime;
+    
+    [Header("AI Settings")]
     [SerializeField] private float roamChangeDirFloat = 2f;
     [SerializeField] private float attackRange = 0f;
-    [SerializeField] private MonoBehaviour enemyType;
+    [SerializeField] private MonoBehaviour enemyType_Old; // Keep old reference for compatibility
     [SerializeField] private float attackCooldown = 2f;
     [SerializeField] private bool stopMovingWhileAttacking = false;
 
@@ -33,6 +39,8 @@ public class SlimeAI : MonoBehaviour
     private void Start()
     {
         roamPosition = GetRoamingPosition();
+        // Initialize health
+        currentHealth = maxHealth;
     }
 
     private void Update()
@@ -85,9 +93,13 @@ public class SlimeAI : MonoBehaviour
 
         if (attackRange != 0 && canAttack)
         {
-
             canAttack = false;
-            (enemyType as IEnemy).Attack();
+            
+            // Use old enemyType reference if available
+            if (enemyType_Old != null)
+            {
+                (enemyType_Old as IEnemy)?.Attack();
+            }
 
             if (stopMovingWhileAttacking)
             {
@@ -112,5 +124,42 @@ public class SlimeAI : MonoBehaviour
     {
         timeRoaming = 0f;
         return new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;
+    }
+
+    /// <summary>
+    /// Method called by Player attack system
+    /// </summary>
+    public void TakeDamage(float damage)
+    {
+        currentHealth -= damage;
+        Debug.Log($"Slime took {damage} damage. Health: {currentHealth}/{maxHealth}");
+        
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
+    }
+
+    /// <summary>
+    /// Alternative method name for compatibility
+    /// </summary>
+    public void ApplyDamage(float damage)
+    {
+        TakeDamage(damage);
+    }
+
+    void Die()
+    {
+        Debug.Log($"Slime has died!");
+        
+        // Notify LevelManager about enemy death
+        LevelManager levelManager = Object.FindFirstObjectByType<LevelManager>();
+        if (levelManager != null)
+        {
+            levelManager.OnEnemyKilled(enemyType);
+        }
+        
+        // Destroy the enemy
+        Destroy(gameObject);
     }
 }

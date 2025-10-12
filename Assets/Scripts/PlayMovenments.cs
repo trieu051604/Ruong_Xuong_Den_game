@@ -19,6 +19,19 @@ public class PlayMovenments : MonoBehaviour
 
     public static PlayMovenments Instance { get; private set; }
 
+    void Awake()
+    {
+        // Singleton pattern
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
 
     void Update()
     {
@@ -66,12 +79,49 @@ public class PlayMovenments : MonoBehaviour
         // vị trí trung tâm của cú đánh
         Vector2 attackPos = (Vector2)transform.position + attackDirection * attackRange * 0.5f;
 
-        //Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPos, attackRange, enemyLayers);
-        //foreach (Collider2D enemy in hitEnemies)
-        //{
-        //    Debug.Log("Đã đánh trúng: " + enemy.name);
-        //    enemy.GetComponent<EnemyHealth>()?.TakeDamage(10);
-        //}
+        // Detect enemies in attack range
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPos, attackRange, enemyLayers);
+        foreach (Collider2D hit in hitEnemies)
+        {
+            Debug.Log("Đã đánh trúng: " + hit.name);
+
+            bool damageDealt = false;
+
+            // Try to find EnemyHealth on the collider or its parents
+            EnemyHealth enemyHealth = hit.GetComponentInParent<EnemyHealth>();
+            if (enemyHealth != null)
+            {
+                enemyHealth.TakeDamage(50f);
+                damageDealt = true;
+                Debug.Log($"Player dealt 50 damage to {enemyHealth.enemyType} ({enemyHealth.gameObject.name}) via EnemyHealth");
+            }
+
+            // If still not dealt, try direct component on collider
+            if (!damageDealt)
+            {
+                enemyHealth = hit.GetComponent<EnemyHealth>();
+                if (enemyHealth != null)
+                {
+                    enemyHealth.TakeDamage(50f);
+                    damageDealt = true;
+                    Debug.Log($"Player dealt 50 damage to {enemyHealth.enemyType} ({enemyHealth.gameObject.name}) via EnemyHealth (on collider)");
+                }
+            }
+
+            // Fallback: send message to collider and to parent
+            if (!damageDealt)
+            {
+                hit.SendMessage("TakeDamage", 50f, SendMessageOptions.DontRequireReceiver);
+                hit.SendMessage("ApplyDamage", 50f, SendMessageOptions.DontRequireReceiver);
+                if (hit.transform.parent != null)
+                {
+                    hit.transform.parent.SendMessage("TakeDamage", 50f, SendMessageOptions.DontRequireReceiver);
+                    hit.transform.parent.SendMessage("ApplyDamage", 50f, SendMessageOptions.DontRequireReceiver);
+                }
+
+                Debug.Log($"Player dealt 50 damage to {hit.name} via SendMessage fallback");
+            }
+        }
 
         Invoke(nameof(EndAttack), 0.3f);
     }
