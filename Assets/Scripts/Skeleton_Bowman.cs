@@ -1,23 +1,21 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Skeleton_Bowman : MonoBehaviour
 {
     public Rigidbody2D rb;
-    public float speed = 5f;
+    public float speed = 3f;
 
-    // Map boundaries
-    public float minX = -5f;
-    public float maxX = 5f;
-    public float minY = -5f;
-    public float maxY = 5f;
+    public float minX = -5f, maxX = 5f, minY = -5f, maxY = 5f;
 
     private Vector2 movement;
-    private float changeDirectionTime = 2f; // how often to change direction or idle
+    private float changeDirectionTime = 2f;
     private float timer;
 
     [Header("Animation")]
-    public Animator animator;             // Reference to Animator (to control animations)
-    public SpriteRenderer spriteRenderer; // Reference to SpriteRenderer (to flip sprite)
+    public Animator animator;
+    public SpriteRenderer spriteRenderer;
+
+    private Vector2 lastDirection; // hướng di chuyển trước khi va chạm
 
     void Start()
     {
@@ -27,34 +25,35 @@ public class Skeleton_Bowman : MonoBehaviour
 
     void Update()
     {
-        // Countdown timer for changing movement state
         timer -= Time.deltaTime;
         if (timer <= 0f)
         {
-            PickRandomState();              // Choose a new random state
-            timer = changeDirectionTime;    // Reset timer
+            PickRandomState();
+            timer = changeDirectionTime;
         }
 
-        // Update animator parameters
         animator.SetFloat("Horizontal", movement.x);
         animator.SetFloat("Vertical", movement.y);
         animator.SetFloat("Speed", movement.sqrMagnitude);
 
-        // Flip sprite when moving left
         if (movement.x != 0)
-        {
             spriteRenderer.flipX = movement.x < 0;
-        }
     }
 
     void FixedUpdate()
     {
-        // Calculate new position based on movement
         Vector2 newPos = rb.position + movement * speed * Time.fixedDeltaTime;
 
-        // Prevent going outside boundaries
-        newPos.x = Mathf.Clamp(newPos.x, minX, maxX);
-        newPos.y = Mathf.Clamp(newPos.y, minY, maxY);
+        if (newPos.x < minX || newPos.x > maxX)
+        {
+            movement.x = -movement.x;
+            newPos.x = Mathf.Clamp(newPos.x, minX, maxX);
+        }
+        if (newPos.y < minY || newPos.y > maxY)
+        {
+            movement.y = -movement.y;
+            newPos.y = Mathf.Clamp(newPos.y, minY, maxY);
+        }
 
         rb.MovePosition(newPos);
     }
@@ -62,26 +61,23 @@ public class Skeleton_Bowman : MonoBehaviour
     void PickRandomState()
     {
         int rand = Random.Range(0, 5);
-
         switch (rand)
         {
-            case 0:
-                movement = Vector2.zero;
-                break;
-            case 1:
-                movement = Vector2.up;
-                break;
-            case 2:
-                movement = Vector2.right;
-                break;
-            case 3:
-                movement = Vector2.down;
-                break;
-            case 4:
-                movement = Vector2.left;
-                break;
+            case 0: movement = Vector2.zero; break;
+            case 1: movement = Vector2.up; break;
+            case 2: movement = Vector2.right; break;
+            case 3: movement = Vector2.down; break;
+            case 4: movement = Vector2.left; break;
         }
+        lastDirection = movement;
+    }
 
-        Debug.Log("Random Movement: " + movement);
+    // ✅ Khi va chạm Player → quái đi ngược lại
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            movement = -movement;
+        }
     }
 }
