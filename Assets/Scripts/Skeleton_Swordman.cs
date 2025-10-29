@@ -21,13 +21,13 @@ public class Skeleton_Swordman : MonoBehaviour
     private SpriteRenderer spriteRenderer;
 
     [Header("Attack Settings")]
-    public float detectRange = 1.5f; // Ph?m vi ph·t hi?n player
+    public float detectRange = 1.5f; // Ph?m vi ph√°t hi?n player
     public float attackCooldown = 1.5f;
     private bool isAttacking;
     private float attackTimer;
 
     [Header("Player Detection")]
-    public Transform player; // KÈo player v‡o ?‚y trong Inspector
+    public Transform player; // K√©o player v√†o ?√¢y trong Inspector
 
     void Start()
     {
@@ -52,20 +52,20 @@ public class Skeleton_Swordman : MonoBehaviour
         {
             if (distanceToPlayer <= detectRange)
             {
-                // --- Khi player trong ph?m vi t?n cÙng ---
-                rb.velocity = Vector2.zero; // D?NG di chuy?n ho‡n to‡n
+                // --- Khi player trong ph?m vi t?n c√¥ng ---
+                rb.linearVelocity = Vector2.zero; // D?NG di chuy?n ho√†n to√†n
                 movement = Vector2.zero;
 
-                // H??ng v? phÌa player
+                // H??ng v? ph√≠a player
                 Vector2 dir = (player.position - transform.position).normalized;
 
-                // L?t h??ng sprite (n?u d˘ng flipX thay vÏ animation tr·i/ph?i)
+                // L?t h??ng sprite (n?u d√πng flipX thay vÃÅ animation tr√°i/ph?i)
                 if (dir.x < 0)
                     spriteRenderer.flipX = true;
                 else if (dir.x > 0)
                     spriteRenderer.flipX = false;
 
-                // N?u t?i l˙c t?n cÙng thÏ t?n cÙng
+                // N?u t?i l√∫c t?n c√¥ng thÃÅ t?n c√¥ng
                 if (attackTimer <= 0f)
                 {
                     StartCoroutine(Attack(dir));
@@ -74,7 +74,7 @@ public class Skeleton_Swordman : MonoBehaviour
             }
             else
             {
-                // --- Player ? xa: di chuy?n ng?u nhiÍn ---
+                // --- Player ? xa: di chuy?n ng?u nhi√™n ---
                 timer -= Time.deltaTime;
                 if (timer <= 0f)
                 {
@@ -82,22 +82,22 @@ public class Skeleton_Swordman : MonoBehaviour
                     timer = changeDirectionTime;
                 }
 
-                // Cho nh‚n v?t di chuy?n bÏnh th??ng khi khÙng t?n cÙng
-                rb.velocity = movement * speed;
+                // Cho nh√¢n v?t di chuy?n bÃÅnh th??ng khi kh√¥ng t?n c√¥ng
+                rb.linearVelocity = movement * speed;
             }
         }
         else
         {
-            // ?ang t?n cÙng thÏ KH‘NG di chuy?n
-            rb.velocity = Vector2.zero;
+            // ?ang t?n c√¥ng thÃÅ KH√îNG di chuy?n
+            rb.linearVelocity = Vector2.zero;
         }
 
-        // ? Ph?n animator ph?i n?m bÍn trong Update()
+        // ? Ph?n animator ph?i n?m b√™n trong Update()
         animator.SetFloat("Horizontal", movement.x);
         animator.SetFloat("Vertical", movement.y);
         animator.SetFloat("Speed", movement.sqrMagnitude);
 
-        // L?t sprite theo h??ng di chuy?n (ch? khi khÙng t?n cÙng)
+        // L?t sprite theo h??ng di chuy?n (ch? khi kh√¥ng t?n c√¥ng)
         if (!isAttacking && movement.x != 0)
             spriteRenderer.flipX = movement.x < 0;
     }
@@ -134,16 +134,16 @@ public class Skeleton_Swordman : MonoBehaviour
         animator.SetBool("AttackDown", false);
         animator.SetBool("AttackRight", false);
 
-        // X·c ??nh h??ng ?·nh
+        // X√°c ??nh h??ng ?√°nh
         if (Mathf.Abs(dir.x) > Mathf.Abs(dir.y))
         {
-            // ?·nh ngang
+            // ?√°nh ngang
             animator.SetBool("AttackRight", true);
             spriteRenderer.flipX = dir.x < 0;
         }
         else
         {
-            // ?·nh d?c
+            // ?√°nh d?c
             if (dir.y > 0)
                 animator.SetBool("AttackUp", true);
             else
@@ -151,7 +151,7 @@ public class Skeleton_Swordman : MonoBehaviour
             spriteRenderer.flipX = false;
         }
 
-        yield return new WaitForSeconds(0.8f); // th?i gian animation ?·nh
+        yield return new WaitForSeconds(0.8f); // th?i gian animation ?√°nh
 
         animator.SetBool("AttackUp", false);
         animator.SetBool("AttackDown", false);
