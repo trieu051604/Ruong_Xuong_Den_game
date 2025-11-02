@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Bombschroom_Move : Monster
+public class Slime : Monster
 {
     [SerializeField] private GameObject energryObject;
     private void OnTriggerEnter2D(Collider2D collision)
