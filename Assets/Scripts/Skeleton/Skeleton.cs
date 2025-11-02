@@ -1,8 +1,8 @@
-using UnityEngine;
+﻿using UnityEngine;
 
-public class Bombschroom_Move : Monster
+public class Skeleton : Monster
 {
-    [SerializeField] private GameObject energryObject;
+    [SerializeField] private GameObject usbObject;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
@@ -12,6 +12,12 @@ public class Bombschroom_Move : Monster
                 player.TakeDamge(enterDamage);
             }
         }
+    }
+
+    protected override void Die()
+    { 
+        Instantiate(usbObject, transform.position, Quaternion.identity);
+        base.Die();
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -24,14 +30,5 @@ public class Bombschroom_Move : Monster
             }
         }
     }
-
-    protected override void Die()
-    {
-        if (energryObject != null)
-        {
-            GameObject energry = Instantiate(energryObject, transform.position, Quaternion.identity);
-            Destroy(energry, 5f);
-        }
-        base.Die();
-    }
 }
+
