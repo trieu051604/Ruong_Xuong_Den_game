@@ -41,14 +41,23 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: WaterTilemap
+    uniqueID: 374477957
+    locked: 0
+  - name: Aroaund
+    uniqueID: 2419848133
+    locked: 0
   - name: Ground
     uniqueID: 2145630581
     locked: 0
-  - name: Player
-    uniqueID: 50801791
-    locked: 0
   - name: ForeGround
     uniqueID: 2163347499
+    locked: 0
+  - name: BridgeTilemap
+    uniqueID: 1366569043
+    locked: 0
+  - name: GameManager
+    uniqueID: 2110015461
     locked: 0
   m_RenderingLayers:
   - Default
