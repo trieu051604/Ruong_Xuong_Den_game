@@ -13,7 +13,7 @@ public class PlayMovenments : MonoBehaviour
     [SerializeField] private float maxHp = 50f;
     private float currentHp;
     [SerializeField] private Image hpBar;
-
+    [SerializeField] private GameManager gameManager;
 
 
 
@@ -38,7 +38,10 @@ public class PlayMovenments : MonoBehaviour
             spriteRenderer.flipX = movement.x < 0;
         }
 
-        
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            gameManager.PauseGameMenu();
+        }
     }
 
     void FixedUpdate()
@@ -49,7 +52,7 @@ public class PlayMovenments : MonoBehaviour
         }
     }
 
-    public void TakeDamge(float damage) 
+    public void TakeDamge(float damage)
     {
         currentHp -= damage;
         currentHp = Mathf.Max(currentHp, 0);
@@ -62,7 +65,8 @@ public class PlayMovenments : MonoBehaviour
 
     private void Die()
     {
-        Destroy(gameObject);
+        gameManager.GameOverMenu();
+        //Destroy(gameObject);
     }
     private void UpdateHpBar()
     {
