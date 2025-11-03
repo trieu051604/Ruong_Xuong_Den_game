@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    private int currentEnergy;
+    public int currentEnergy;
     [SerializeField] private int energyThreshold = 3;
     [SerializeField] private GameObject boss;
     [SerializeField] private GameObject spawner;
