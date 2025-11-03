@@ -13,10 +13,11 @@ GameObject:
   - component: {fileID: 6974027537588385738}
   - component: {fileID: 1214506216073384664}
   - component: {fileID: 2858567404424694256}
+  - component: {fileID: 4567942225940055216}
   - component: {fileID: 8463697896801901569}
   m_Layer: 0
   m_Name: Skeleton_Mage
-  m_TagString: Untagged
+  m_TagString: monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -162,6 +163,26 @@ MonoBehaviour:
   detectionRange: 8
   attackRange: 1.5
   attackCooldown: 2
+--- !u!114 &4567942225940055216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 251233099189795949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e960a1abda856943bf0c54e108a9c41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Skeleton
+  detectionRange: 8
+  patrolRange: 4
+  enemyMoveSpeed: 1
+  maxHp: 50
+  hpBar: {fileID: 0}
+  enterDamage: 10
+  stayDamage: 1
+  usbObject: {fileID: 5106188094301589836, guid: d3bc583bbfee6fa48b628a7fbf6294c1, type: 3}
 --- !u!70 &8463697896801901569
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

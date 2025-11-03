@@ -10,29 +10,30 @@ public class GameManager : MonoBehaviour
     private bool bossCalled = false;
     [SerializeField] private Image energryBar;
     [SerializeField] private GameObject gameUi;
+    public int ammoForThisLevel = 30;
 
     void Start()
     {
         currentEnergy = 0;
         boss.SetActive(false);
-
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
     }
+
     public void AddEnergy()
     {
         if (bossCalled) return;
         currentEnergy += 1;
         UpdateEnergyBar();
-        if (currentEnergy >= energyThreshold )
+
+        if (currentEnergy >= energyThreshold)
         {
-            CallBoss(); 
+            CallBoss();
         }
     }
+
     public void CallBoss()
     {
         bossCalled = true;
@@ -40,11 +41,12 @@ public class GameManager : MonoBehaviour
         spawner.SetActive(false);
         gameUi.SetActive(false);
     }
+
     private void UpdateEnergyBar()
     {
         if (energryBar != null)
         {
-            float fillAmount = Mathf.Clamp01((float)currentEnergy / (float)energyThreshold);
+            float fillAmount = Mathf.Clamp01((float)currentEnergy / energyThreshold);
             energryBar.fillAmount = fillAmount;
         }
     }
