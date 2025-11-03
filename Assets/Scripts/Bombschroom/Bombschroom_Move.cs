@@ -1,97 +1,37 @@
 using UnityEngine;
 
-public class Bombschroom_Move : MonoBehaviour
+public class Bombschroom_Move : Monster
 {
-    public Rigidbody2D rb;
-    public float speed = 5f;
-
-    // Map boundaries
-    public float minX = -5f;
-    public float maxX = 5f;
-    public float minY = -5f;
-    public float maxY = 5f;
-
-    private Vector2 movement;
-    private float changeDirectionTime = 2f; // how often to change direction or idle
-    private float timer;
-
-    [Header("Animation")]
-    public Animator animator;             // Reference to Animator (to control animations)
-    public SpriteRenderer spriteRenderer; // Reference to SpriteRenderer (to flip sprite)
-
-    void Start()
+    [SerializeField] private GameObject energryObject;
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        timer = changeDirectionTime;
-        PickRandomState();
-    }
-
-    void Update()
-    {
-        // Countdown timer for changing movement state
-        timer -= Time.deltaTime;
-        if (timer <= 0f)
+        if (collision.CompareTag("Player"))
         {
-            PickRandomState();              // Choose a new random state
-            timer = changeDirectionTime;    // Reset timer
-        }
-
-        // Update animator parameters
-        animator.SetFloat("Horizontal", movement.x);
-        animator.SetFloat("Vertical", movement.y);
-        animator.SetFloat("Speed", movement.sqrMagnitude);
-
-        // Flip sprite when moving left
-        if (movement.x != 0)
-        {
-            spriteRenderer.flipX = movement.x < 0;
+            if (player != null)
+            {
+                player.TakeDamge(enterDamage);
+            }
         }
     }
 
-    void FixedUpdate()
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        // Calculate new position based on movement
-        Vector2 newPos = rb.position + movement * speed * Time.fixedDeltaTime;
-
-        // Boundary check on X-axis
-        if (newPos.x < minX || newPos.x > maxX)
+        if (collision.CompareTag("Player"))
         {
-            movement.x = -movement.x; // Reverse X direction if hitting boundary
-            newPos.x = Mathf.Clamp(newPos.x, minX, maxX);
+            if (player != null)
+            {
+                player.TakeDamge(stayDamage);
+            }
         }
-
-        // Boundary check on Y-axis
-        if (newPos.y < minY || newPos.y > maxY)
-        {
-            movement.y = -movement.y; // Reverse Y direction if hitting boundary
-            newPos.y = Mathf.Clamp(newPos.y, minY, maxY);
-        }
-
-        // Move Rigidbody to the new position
-        rb.MovePosition(newPos);
     }
 
-    void PickRandomState()
+    protected override void Die()
     {
-        int rand = Random.Range(0, 5);
-        // 0 = idle, 1 = up, 2 = right, 3 = down, 4 = left
-
-        switch (rand)
+        if (energryObject != null)
         {
-            case 0:
-                movement = Vector2.zero;   // Idle
-                break;
-            case 1:
-                movement = Vector2.up;     // Move up
-                break;
-            case 2:
-                movement = Vector2.right;  // Move right
-                break;
-            case 3:
-                movement = Vector2.down;   // Move down
-                break;
-            case 4:
-                movement = Vector2.left;   // Move left
-                break;
+            GameObject energry = Instantiate(energryObject, transform.position, Quaternion.identity);
+            Destroy(energry, 5f);
         }
+        base.Die();
     }
 }

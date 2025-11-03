@@ -2,16 +2,22 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!78 &1
 TagManager:
-  serializedVersion: 2
-  tags: []
+  serializedVersion: 3
+  tags:
+  - PlayerArrow
+  - Slime
+  - Skeleton
+  - Energry
+  - monster
+  - usb
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
-  - 
+  - Ground
   - 
   - 
   - 
@@ -38,6 +44,44 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Ground
+    uniqueID: 2145630581
+    locked: 0
+  - name: ForeGround
+    uniqueID: 2163347499
+    locked: 0
+  - name: Rock
+    uniqueID: 3775746849
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Player
+    uniqueID: 50801791
+    locked: 0
+  - name: Arrow
+    uniqueID: 2491243593
+    locked: 0
+  - name: Bow
+    uniqueID: 3237061525
+    locked: 0
+  - name: Slime
+    uniqueID: 4170451617
+    locked: 0
+  - name: Skeleton
+    uniqueID: 3030551963
+    locked: 0
+  - name: HpBars
+    uniqueID: 2699670329
+    locked: 0
+  - name: Energry
+    uniqueID: 2790868523
+    locked: 0
+  - name: Bombschroom
+    uniqueID: 3956001987
+    locked: 0
+  - name: GameUI
+    uniqueID: 2696339459
+    locked: 0
+  m_RenderingLayers:
+  - Default

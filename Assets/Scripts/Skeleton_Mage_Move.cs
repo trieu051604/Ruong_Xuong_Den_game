@@ -2,96 +2,173 @@ using UnityEngine;
 
 public class Skeleton_Mage_Move : MonoBehaviour
 {
+    // Core Components & Stats 
     public Rigidbody2D rb;
-    public float speed = 5f;
+    public float speed = 3f;
+    public Animator animator;
+    public SpriteRenderer spriteRenderer;
 
-    // Map boundaries
-    public float minX = -5f;
-    public float maxX = 5f;
-    public float minY = -5f;
-    public float maxY = 5f;
+    // AI Behavior Variables 
+    public float detectionRange = 8f;   // Range to detect the player
+    public float attackRange = 1.5f;    // Range to attack the player
+    public float attackCooldown = 2f;   // Cooldown between attacks
 
-    private Vector2 movement;
-    private float changeDirectionTime = 2f; // how often to change direction or idle
+    private Transform playerTransform;      // Reference to the player's transform
+    private float lastAttackTime = -999f;   // The time of the last attack
+
+    //  Wander State Variables 
+    private Vector2 wanderMovement;
+    private float changeDirectionTime = 2f;
     private float timer;
 
-    [Header("Animation")]
-    public Animator animator;             // Reference to Animator (to control animations)
-    public SpriteRenderer spriteRenderer; // Reference to SpriteRenderer (to flip sprite)
+    // State Machine for AI
+    private enum State { Wander, Chase, Attack }
+    private State currentState;
 
     void Start()
     {
+        
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player != null)
+        {
+            playerTransform = player.transform;
+        }
+
         timer = changeDirectionTime;
-        PickRandomState();
+        currentState = State.Wander; 
     }
 
     void Update()
     {
-        // Countdown timer for changing movement state
+        if (playerTransform == null)
+        {
+            
+            currentState = State.Wander;
+            Wander();
+            return;
+        }
+
+        
+        switch (currentState)
+        {
+            case State.Wander:
+                Wander();
+                
+                if (Vector2.Distance(transform.position, playerTransform.position) < detectionRange)
+                {
+                    currentState = State.Chase;
+                }
+                break;
+
+            case State.Chase:
+                Chase();
+                
+                if (Vector2.Distance(transform.position, playerTransform.position) < attackRange)
+                {
+                    currentState = State.Attack;
+                }
+                
+                else if (Vector2.Distance(transform.position, playerTransform.position) > detectionRange)
+                {
+                    currentState = State.Wander;
+                }
+                break;
+
+            case State.Attack:
+                Attack();
+                
+                if (Vector2.Distance(transform.position, playerTransform.position) > attackRange)
+                {
+                    currentState = State.Chase;
+                }
+                break;
+        }
+    }
+
+    void Wander()
+    {
+        // Random wandering logic
         timer -= Time.deltaTime;
         if (timer <= 0f)
         {
-            PickRandomState();              // Choose a new random state
-            timer = changeDirectionTime;    // Reset timer
+            PickRandomDirection();
+            timer = changeDirectionTime;
+        }
+        UpdateAnimation(wanderMovement);
+        rb.MovePosition(rb.position + wanderMovement * speed * Time.fixedDeltaTime);
+    }
+
+    void Chase()
+    {
+        // Move towards the player
+        Vector2 direction = (playerTransform.position - transform.position).normalized;
+        UpdateAnimation(direction);
+        rb.MovePosition(rb.position + direction * speed * Time.fixedDeltaTime);
+    }
+
+    void Attack()
+    {
+        if (playerTransform == null) return;
+
+     
+        Vector2 directionToPlayer = (playerTransform.position - transform.position);
+        if (Mathf.Abs(directionToPlayer.x) > Mathf.Abs(directionToPlayer.y))
+        {
+            spriteRenderer.flipX = directionToPlayer.x < 0;
         }
 
-        // Update animator parameters
+       
+        UpdateAnimation(Vector2.zero);
+
+       
+        if (Time.time >= lastAttackTime + attackCooldown)
+        {
+           
+            rb.linearVelocity = Vector2.zero;
+
+            lastAttackTime = Time.time;
+
+            
+            directionToPlayer.Normalize();
+            animator.SetFloat("AttackX", directionToPlayer.x);
+            animator.SetFloat("AttackY", directionToPlayer.y);
+            animator.SetTrigger("Attack");
+        }
+    }
+
+    void PickRandomDirection()
+    {
+        int rand = Random.Range(0, 5);
+        switch (rand)
+        {
+            case 0: wanderMovement = Vector2.zero; break;
+            case 1: wanderMovement = Vector2.up; break;
+            case 2: wanderMovement = Vector2.right; break;
+            case 3: wanderMovement = Vector2.down; break;
+            case 4: wanderMovement = Vector2.left; break;
+        }
+    }
+
+    void UpdateAnimation(Vector2 movement)
+    {
+       
         animator.SetFloat("Horizontal", movement.x);
         animator.SetFloat("Vertical", movement.y);
         animator.SetFloat("Speed", movement.sqrMagnitude);
 
-        // Flip sprite when moving left
+        // Flip sprite based on movement direction (for Wander and Chase states)
         if (movement.x != 0)
         {
             spriteRenderer.flipX = movement.x < 0;
         }
     }
 
-    void FixedUpdate()
+    
+    void OnDrawGizmosSelected()
     {
-        // Calculate new position based on movement
-        Vector2 newPos = rb.position + movement * speed * Time.fixedDeltaTime;
-
-        // Boundary check on X-axis
-        if (newPos.x < minX || newPos.x > maxX)
-        {
-            movement.x = -movement.x; // Reverse X direction if hitting boundary
-            newPos.x = Mathf.Clamp(newPos.x, minX, maxX);
-        }
-
-        // Boundary check on Y-axis
-        if (newPos.y < minY || newPos.y > maxY)
-        {
-            movement.y = -movement.y; // Reverse Y direction if hitting boundary
-            newPos.y = Mathf.Clamp(newPos.y, minY, maxY);
-        }
-
-        // Move Rigidbody to the new position
-        rb.MovePosition(newPos);
-    }
-
-    void PickRandomState()
-    {
-        int rand = Random.Range(0, 5);
-        // 0 = idle, 1 = up, 2 = right, 3 = down, 4 = left
-
-        switch (rand)
-        {
-            case 0:
-                movement = Vector2.zero;   // Idle
-                break;
-            case 1:
-                movement = Vector2.up;     // Move up
-                break;
-            case 2:
-                movement = Vector2.right;  // Move right
-                break;
-            case 3:
-                movement = Vector2.down;   // Move down
-                break;
-            case 4:
-                movement = Vector2.left;   // Move left
-                break;
-        }
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, detectionRange);
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, attackRange);
     }
 }
