@@ -149,7 +149,7 @@ Transform:
   m_GameObject: {fileID: 126959655}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.07, y: -14.4, z: 0}
+  m_LocalPosition: {x: 4.9, y: -12.72, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -340,7 +340,6 @@ MonoBehaviour:
   firePos: {fileID: 765314543}
   bulletPrefabs: {fileID: 3307122146537961770, guid: a65d22de8c0c7094599e78eb4ad91ae3, type: 3}
   shotDelay: 0.15
-  maxAmmo: 24
   currentAmmo: 0
 --- !u!212 &306888418
 SpriteRenderer:
@@ -712,7 +711,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28e89ff7f1f30b741a2c5f20912c3472, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  gameManager: {fileID: 0}
+  gameManager: {fileID: 1651991631}
 --- !u!1 &440718710
 GameObject:
   m_ObjectHideFlags: 0
@@ -1379,7 +1378,7 @@ Transform:
   m_GameObject: {fileID: 587561575}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.07, y: 5.25, z: 0}
+  m_LocalPosition: {x: 6.8, y: 2.71, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1591,7 +1590,7 @@ Transform:
   m_GameObject: {fileID: 754048867}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.83, y: -14.59, z: 0}
+  m_LocalPosition: {x: -7.16, y: -12.96, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2917,6 +2916,7 @@ MonoBehaviour:
   mainMenu: {fileID: 792848765}
   gameOverMenu: {fileID: 551542372}
   pauseMenu: {fileID: 478326371}
+  ammoForThisLevel: 1000
 --- !u!4 &1651991632
 Transform:
   m_ObjectHideFlags: 0
@@ -4448,7 +4448,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 2145630581
-  m_SortingLayer: -3
+  m_SortingLayer: -5
   m_SortingOrder: 1
   m_Sprite: {fileID: -1760868267, guid: fa6bda2ad6cde2e4dbe7a00c7646ef86, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -4799,7 +4799,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 2145630581
-  m_SortingLayer: -3
+  m_SortingLayer: -5
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -13998,7 +13998,7 @@ Transform:
   m_GameObject: {fileID: 1816095958}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.88, y: 5.05, z: 0}
+  m_LocalPosition: {x: -7.39, y: 2.69, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14714,7 +14714,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 2145630581
-  m_SortingLayer: -3
+  m_SortingLayer: -5
   m_SortingOrder: 1
   m_Sprite: {fileID: -391829410, guid: 9a0caacfd8cf5dc49a280f480072b316, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

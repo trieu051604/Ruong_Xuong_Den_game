@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -15,19 +16,16 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject gameOverMenu;
     [SerializeField] private GameObject pauseMenu;
 
+    public int ammoForThisLevel = 30;
+
     void Start()
     {
         currentEnergy = 0;
-        boss.SetActive(false);
-        MainMenu();
-
+        if (boss != null) boss.SetActive(false);
+        //MainMenu();
+        Time.timeScale = 1f;
     }
 
-    //// Update is called once per frame
-    //void Update()
-    //{
-
-    //}
     public void AddEnergy()
     {
         if (bossCalled) return;
@@ -38,13 +36,15 @@ public class GameManager : MonoBehaviour
             CallBoss();
         }
     }
+
     public void CallBoss()
     {
         bossCalled = true;
-        boss.SetActive(true);
-        spawner.SetActive(false);
-        gameUi.SetActive(false);
+        if (boss != null) boss.SetActive(true);
+        if (spawner != null) spawner.SetActive(false);
+        if (gameUi != null) gameUi.SetActive(false);
     }
+
     private void UpdateEnergyBar()
     {
         if (energryBar != null)
@@ -53,39 +53,44 @@ public class GameManager : MonoBehaviour
             energryBar.fillAmount = fillAmount;
         }
     }
+
     public void MainMenu()
     {
-        mainMenu.SetActive(true);
-        gameOverMenu.SetActive(false);
-        pauseMenu.SetActive(false);
+        if (mainMenu != null) mainMenu.SetActive(true);
+        if (gameOverMenu != null) gameOverMenu.SetActive(false);
+        if (pauseMenu != null) pauseMenu.SetActive(false);
         Time.timeScale = 0f;
     }
+
     public void GameOverMenu()
     {
-        gameOverMenu.SetActive(true);
-        mainMenu.SetActive(false);
-        pauseMenu.SetActive(false);
+        if (gameOverMenu != null) gameOverMenu.SetActive(true);
+        if (mainMenu != null) mainMenu.SetActive(false);
+        if (pauseMenu != null) pauseMenu.SetActive(false);
         Time.timeScale = 0f;
     }
+
     public void PauseGameMenu()
     {
-        pauseMenu.SetActive(true);
-        mainMenu.SetActive(false);
-        gameOverMenu.SetActive(false);
+        if (pauseMenu != null) pauseMenu.SetActive(true);
+        if (mainMenu != null) mainMenu.SetActive(false);
+        if (gameOverMenu != null) gameOverMenu.SetActive(false);
         Time.timeScale = 0f;
     }
+
     public void StartGame()
     {
-        mainMenu.SetActive(false);
-        pauseMenu.SetActive(false);
-        gameOverMenu.SetActive(false);
+        if (mainMenu != null) mainMenu.SetActive(false);
+        if (pauseMenu != null) pauseMenu.SetActive(false);
+        if (gameOverMenu != null) gameOverMenu.SetActive(false);
         Time.timeScale = 1f;
     }
+
     public void ResumeGame()
     {
-        mainMenu.SetActive(false);
-        pauseMenu.SetActive(false);
-        gameOverMenu.SetActive(false);
+        if (mainMenu != null) mainMenu.SetActive(false);
+        if (pauseMenu != null) pauseMenu.SetActive(false);
+        if (gameOverMenu != null) gameOverMenu.SetActive(false);
         Time.timeScale = 1f;
     }
 }

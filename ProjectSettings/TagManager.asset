@@ -7,9 +7,9 @@ TagManager:
   - PlayerArrow
   - Slime
   - Skeleton
-  - Energry
   - monster
   - usb
+  - Energy
   layers:
   - Default
   - TransparentFX
@@ -91,6 +91,9 @@ TagManager:
     locked: 0
   - name: GameUI
     uniqueID: 2696339459
+    locked: 0
+  - name: GameManager
+    uniqueID: 1581382119
     locked: 0
   m_RenderingLayers:
   - Default
