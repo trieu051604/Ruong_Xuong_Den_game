@@ -12,7 +12,7 @@ public class bow : MonoBehaviour
     private int maxAmmo;
     public int currentAmmo;
     private GameManager gameManager;
-
+    [SerializeField] private AudioManagerPlayer audioManagerPlayer;
     void Start()
     {
         gameManager = FindFirstObjectByType<GameManager>();
@@ -67,7 +67,9 @@ public class bow : MonoBehaviour
             nextShot = Time.time + shotDelay;
             Instantiate(bulletPrefabs, firePos.position, firePos.rotation);
             currentAmmo--;
+            audioManagerPlayer.PlayPlayerAttackSound();
         }
+        
     }
 
     void Reload()
@@ -76,5 +78,6 @@ public class bow : MonoBehaviour
         {
             currentAmmo = maxAmmo;
         }
+        
     }
 }

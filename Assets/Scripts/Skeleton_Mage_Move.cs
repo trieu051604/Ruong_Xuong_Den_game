@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Skeleton_Mage_Move : MonoBehaviour
 {
+    [SerializeField] private AudioManagementLevel2 audioManagementLevel2;
     // Core Components & Stats 
     public Rigidbody2D rb;
     public float speed = 3f;
@@ -133,6 +134,7 @@ public class Skeleton_Mage_Move : MonoBehaviour
             animator.SetFloat("AttackX", directionToPlayer.x);
             animator.SetFloat("AttackY", directionToPlayer.y);
             animator.SetTrigger("Attack");
+            audioManagementLevel2.PlayBossAttackSound();
         }
     }
 

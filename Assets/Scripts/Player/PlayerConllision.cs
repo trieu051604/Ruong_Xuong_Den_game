@@ -4,6 +4,7 @@ using UnityEngine;
 public class PlayerConllision : MonoBehaviour
 {
     [SerializeField] private GameManager gameManager;
+    [SerializeField] private AudioManagerPlayer audioManagerPlayer;
     private void OnTriggerEnter2D(Collider2D collision)
         {
         if (collision.gameObject.CompareTag("usb"))
@@ -15,6 +16,7 @@ public class PlayerConllision : MonoBehaviour
         {
             gameManager.AddEnergy();
             Destroy(collision.gameObject);
+            audioManagerPlayer.PlayCollectSound();
         }
     } 
 }

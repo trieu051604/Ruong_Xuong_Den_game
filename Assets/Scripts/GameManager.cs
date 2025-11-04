@@ -14,7 +14,8 @@ public class GameManager : MonoBehaviour
     public int ammoForThisLevel = 30;
     [SerializeField] private GameObject pauseMenuUI;
     [SerializeField] private GameObject gameOverMenuUI;
-
+    [SerializeField] private AudioManagerMainMenu audioManagerMainMenu;
+    //[SerializeField] private AudioManagementLevel1 audioManagementLevel1;
     void Start()
     {
         currentEnergy = 0;
@@ -61,6 +62,7 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        audioManagerMainMenu.PlayBackgroundMusicMainMenu();
     }
 
     public void PauseGameMenu()
