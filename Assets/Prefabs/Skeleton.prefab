@@ -17,11 +17,11 @@ GameObject:
   - component: {fileID: 8835061442628241988}
   m_Layer: 0
   m_Name: Skeleton
-  m_TagString: Untagged
+  m_TagString: monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5121619750854752912
 Transform:
   m_ObjectHideFlags: 0
@@ -193,17 +193,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e960a1abda856943bf0c54e108a9c41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Skeleton
-  rb: {fileID: 1871997460655363216}
-  speed: 5
-  animator: {fileID: 1567845106552869947}
-  spriteRenderer: {fileID: 6106285096120294956}
   detectionRange: 8
-  attackRange: 1.5
-  attackCooldown: 2
-  attackDamage: 10
-  playerLayer:
-    serializedVersion: 2
-    m_Bits: 1
+  patrolRange: 4
+  enemyMoveSpeed: 1
+  maxHp: 50
+  hpBar: {fileID: 0}
+  enterDamage: 10
+  stayDamage: 1
+  usbObject: {fileID: 0}
 --- !u!70 &8835061442628241988
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

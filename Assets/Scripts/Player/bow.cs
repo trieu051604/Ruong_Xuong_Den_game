@@ -8,49 +8,35 @@ public class bow : MonoBehaviour
     [SerializeField] private GameObject bulletPrefabs;
     [SerializeField] private float shotDelay = 0.15f;
     private float nextShot;
-
-    private int maxAmmo;
+    [SerializeField] private int maxAmmo = 24;
     public int currentAmmo;
-    private GameManager gameManager;
+
 
     void Start()
     {
-        gameManager = FindFirstObjectByType<GameManager>();
-
-        if (gameManager != null)
-        {
-            maxAmmo = gameManager.ammoForThisLevel;
-        }
-        else
-        {
-            Debug.LogError("GameManager not found! Setting maxAmmo to 24 as a fallback.");
-
-            maxAmmo = 24;
-        }
-
         currentAmmo = maxAmmo;
     }
 
+    
     void Update()
     {
-        RotateBow();
+        rotateBow();
         Shoot();
-        Reload();
+        ReLoad();
     }
-
-    void RotateBow()
+    void rotateBow()
     {
-        if (Input.mousePosition.x < 0 || Input.mousePosition.x > Screen.width ||
-            Input.mousePosition.y < 0 || Input.mousePosition.y > Screen.height)
+        if (Input.mousePosition.x < 0 || Input.mousePosition.x >Screen.width || Input.mousePosition.y < 0 || Input.mousePosition.y > Screen.height) 
         {
-            return;
+            return;  
         }
+
 
         Vector3 displacement = transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
         float angle = Mathf.Atan2(displacement.y, displacement.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0f, 0f, angle + rotateOffset);
 
-        if (angle > 90 || angle < -90)
+        if(angle > 90 || angle < -90)
         {
             transform.localScale = new Vector3(1, -1, 1);
         }
@@ -70,11 +56,12 @@ public class bow : MonoBehaviour
         }
     }
 
-    void Reload()
+    void ReLoad()
     {
-        if (Input.GetKeyDown(KeyCode.R) && currentAmmo < maxAmmo)
+        if(Input.GetKeyDown(KeyCode.R) && currentAmmo < maxAmmo)
         {
             currentAmmo = maxAmmo;
         }
     }
+
 }

@@ -44,23 +44,11 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Around
-    uniqueID: 2707826505
-    locked: 0
   - name: Ground
     uniqueID: 2145630581
     locked: 0
-  - name: WaterTilemap
-    uniqueID: 1556347105
-    locked: 0
   - name: ForeGround
     uniqueID: 2163347499
-    locked: 0
-  - name: BridgeTilemap
-    uniqueID: 2282540865
-    locked: 0
-  - name: GameManager
-    uniqueID: 233404579
     locked: 0
   - name: Rock
     uniqueID: 3775746849
