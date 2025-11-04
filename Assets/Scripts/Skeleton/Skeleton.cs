@@ -3,10 +3,9 @@
 public class Skeleton : Monster
 {
     [SerializeField] private GameObject usbObject;
-
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.CompareTag("Player"))
         {
             if (player != null)
             {
@@ -15,9 +14,15 @@ public class Skeleton : Monster
         }
     }
 
-    private void OnCollisionStay2D(Collision2D collision)
+    protected override void Die()
+    { 
+        Instantiate(usbObject, transform.position, Quaternion.identity);
+        base.Die();
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.CompareTag("Player"))
         {
             if (player != null)
             {
@@ -25,13 +30,5 @@ public class Skeleton : Monster
             }
         }
     }
-
-    protected override void Die()
-    {
-        if (usbObject != null)
-        {
-            Instantiate(usbObject, transform.position, Quaternion.identity);
-        }
-        base.Die();
-    }
 }
+

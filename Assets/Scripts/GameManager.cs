@@ -1,46 +1,43 @@
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public int currentEnergy;
+    private int currentEnergy;
     [SerializeField] private int energyThreshold = 3;
     [SerializeField] private GameObject boss;
     [SerializeField] private GameObject spawner;
     private bool bossCalled = false;
     [SerializeField] private Image energryBar;
     [SerializeField] private GameObject gameUi;
-    public int ammoForThisLevel = 30;
-    [SerializeField] private GameObject pauseMenuUI;
-    [SerializeField] private GameObject gameOverMenuUI;
+
+    [SerializeField] private GameObject mainMenu;
+    [SerializeField] private GameObject gameOverMenu;
+    [SerializeField] private GameObject pauseMenu;
 
     void Start()
     {
         currentEnergy = 0;
         boss.SetActive(false);
+        MainMenu();
 
-        if (pauseMenuUI != null) pauseMenuUI.SetActive(false);
-        if (gameOverMenuUI != null) gameOverMenuUI.SetActive(false);
-        Time.timeScale = 1f;
     }
 
-    void Update()
-    {
-    }
+    //// Update is called once per frame
+    //void Update()
+    //{
 
+    //}
     public void AddEnergy()
     {
         if (bossCalled) return;
         currentEnergy += 1;
         UpdateEnergyBar();
-
         if (currentEnergy >= energyThreshold)
         {
             CallBoss();
         }
     }
-
     public void CallBoss()
     {
         bossCalled = true;
@@ -48,7 +45,6 @@ public class GameManager : MonoBehaviour
         spawner.SetActive(false);
         gameUi.SetActive(false);
     }
-
     private void UpdateEnergyBar()
     {
         if (energryBar != null)
@@ -57,30 +53,39 @@ public class GameManager : MonoBehaviour
             energryBar.fillAmount = fillAmount;
         }
     }
-
-    public void StartGame()
+    public void MainMenu()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
-
-    public void PauseGameMenu()
-    {
-        if (pauseMenuUI != null) pauseMenuUI.SetActive(true);
+        mainMenu.SetActive(true);
+        gameOverMenu.SetActive(false);
+        pauseMenu.SetActive(false);
         Time.timeScale = 0f;
-        Debug.Log("Game Paused!");
     }
-
-    public void ResumeGame()
-    {
-        if (pauseMenuUI != null) pauseMenuUI.SetActive(false);
-        Time.timeScale = 1f;
-        Debug.Log("Game Resumed!");
-    }
-
     public void GameOverMenu()
     {
-        if (gameOverMenuUI != null) gameOverMenuUI.SetActive(true);
+        gameOverMenu.SetActive(true);
+        mainMenu.SetActive(false);
+        pauseMenu.SetActive(false);
         Time.timeScale = 0f;
-        Debug.Log("Game Over!");
+    }
+    public void PauseGameMenu()
+    {
+        pauseMenu.SetActive(true);
+        mainMenu.SetActive(false);
+        gameOverMenu.SetActive(false);
+        Time.timeScale = 0f;
+    }
+    public void StartGame()
+    {
+        mainMenu.SetActive(false);
+        pauseMenu.SetActive(false);
+        gameOverMenu.SetActive(false);
+        Time.timeScale = 1f;
+    }
+    public void ResumeGame()
+    {
+        mainMenu.SetActive(false);
+        pauseMenu.SetActive(false);
+        gameOverMenu.SetActive(false);
+        Time.timeScale = 1f;
     }
 }

@@ -3,10 +3,9 @@ using UnityEngine;
 public class Slime : Monster
 {
     [SerializeField] private GameObject energryObject;
-
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.CompareTag("Player"))
         {
             if (player != null)
             {
@@ -15,9 +14,9 @@ public class Slime : Monster
         }
     }
 
-    private void OnCollisionStay2D(Collision2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.CompareTag("Player"))
         {
             if (player != null)
             {
