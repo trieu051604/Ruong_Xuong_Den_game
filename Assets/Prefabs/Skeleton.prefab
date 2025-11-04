@@ -21,7 +21,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5121619750854752912
 Transform:
   m_ObjectHideFlags: 0
@@ -193,8 +193,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e960a1abda856943bf0c54e108a9c41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Skeleton
-  detectionRange: 8
-  patrolRange: 4
   enemyMoveSpeed: 1
   maxHp: 50
   hpBar: {fileID: 0}
