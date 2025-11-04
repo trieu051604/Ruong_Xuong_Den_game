@@ -286,6 +286,10 @@ PrefabInstance:
       propertyPath: m_Constraints
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 4516788832444903248, guid: 13665e6b7e444344ebed0451c5e3ac40, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 1830313622}
     - target: {fileID: 4804957901677947434, guid: 13665e6b7e444344ebed0451c5e3ac40, type: 3}
       propertyPath: gameManager
       value: 
@@ -2214,7 +2218,7 @@ Transform:
   m_GameObject: {fileID: 662225231}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.15, y: -0.09, z: 0}
+  m_LocalPosition: {x: -0.16, y: -0.09, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5380,6 +5384,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Skeleton_Mage
       objectReference: {fileID: 0}
+    - target: {fileID: 251233099189795949, guid: 5a575c11b669fc74f8ffb68404af99d5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3569615554813977703, guid: 5a575c11b669fc74f8ffb68404af99d5, type: 3}
       propertyPath: m_SortingLayer
       value: 0
@@ -5438,10 +5446,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7478163947903464049, guid: 5a575c11b669fc74f8ffb68404af99d5, type: 3}
       insertIndex: -1
       addedObject: {fileID: 256143250}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 251233099189795949, guid: 5a575c11b669fc74f8ffb68404af99d5, type: 3}
-      insertIndex: 5
-      addedObject: {fileID: 1186206069}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a575c11b669fc74f8ffb68404af99d5, type: 3}
 --- !u!4 &1186206062 stripped
 Transform:
@@ -5453,26 +5458,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 251233099189795949, guid: 5a575c11b669fc74f8ffb68404af99d5, type: 3}
   m_PrefabInstance: {fileID: 1186206061}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1186206069
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1186206063}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e960a1abda856943bf0c54e108a9c41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Skeleton
-  detectionRange: 8
-  patrolRange: 4
-  enemyMoveSpeed: 1
-  maxHp: 50
-  hpBar: {fileID: 0}
-  enterDamage: 10
-  stayDamage: 1
-  usbObject: {fileID: 0}
 --- !u!1 &1251968495
 GameObject:
   m_ObjectHideFlags: 0
@@ -6196,6 +6181,8 @@ MonoBehaviour:
   energryBar: {fileID: 1251968497}
   gameUi: {fileID: 216807916}
   ammoForThisLevel: 1500
+  pauseMenuUI: {fileID: 0}
+  gameOverMenuUI: {fileID: 0}
 --- !u!1001 &1833098567
 PrefabInstance:
   m_ObjectHideFlags: 0
