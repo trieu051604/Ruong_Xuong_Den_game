@@ -16014,15 +16014,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5eb93c4db8a0724b8e4ee90be57ffb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
-  currentEnergy: 0
   energyThreshold: 3
   boss: {fileID: 1300876353}
   spawner: {fileID: 1907237222}
   energryBar: {fileID: 1812374464}
   gameUi: {fileID: 1903579535}
-  ammoForThisLevel: 30
-  pauseMenuUI: {fileID: 0}
-  gameOverMenuUI: {fileID: 0}
+  mainMenu: {fileID: 0}
+  gameOverMenu: {fileID: 0}
+  pauseMenu: {fileID: 0}
+  ammoForThisLevel: 1000
 --- !u!1 &1300876353 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7401646525953459439, guid: c60ae6fa559553b47bb4486c823c7756, type: 3}
@@ -16278,8 +16278,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e960a1abda856943bf0c54e108a9c41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Skeleton
-  detectionRange: 8
-  patrolRange: 4
   enemyMoveSpeed: 1
   maxHp: 50
   hpBar: {fileID: 2012703501}

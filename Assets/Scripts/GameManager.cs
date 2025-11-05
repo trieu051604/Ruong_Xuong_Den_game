@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
     {
         currentEnergy = 0;
         if (boss != null) boss.SetActive(false);
-        //MainMenu();
+        MainMenu();
         Time.timeScale = 1f;
     }
 
