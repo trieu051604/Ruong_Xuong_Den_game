@@ -11,7 +11,7 @@ public class PlayerConllision : MonoBehaviour
             Debug.Log("Collided with USB");
             Destroy(collision.gameObject);
         }
-        else if (collision.gameObject.CompareTag("Energry"))
+        else if (collision.gameObject.CompareTag("Energy"))
         {
             gameManager.AddEnergy();
             Destroy(collision.gameObject);

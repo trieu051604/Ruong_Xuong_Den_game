@@ -3,9 +3,10 @@ using UnityEngine;
 public class Bombschroom_Move : Monster
 {
     [SerializeField] private GameObject energryObject;
-    private void OnTriggerEnter2D(Collider2D collision)
+
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
             if (player != null)
             {
@@ -14,9 +15,9 @@ public class Bombschroom_Move : Monster
         }
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
             if (player != null)
             {
@@ -32,6 +33,7 @@ public class Bombschroom_Move : Monster
             GameObject energry = Instantiate(energryObject, transform.position, Quaternion.identity);
             Destroy(energry, 5f);
         }
+
         base.Die();
     }
 }

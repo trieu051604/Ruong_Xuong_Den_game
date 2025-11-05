@@ -7,9 +7,9 @@ TagManager:
   - PlayerArrow
   - Slime
   - Skeleton
-  - Energry
   - monster
   - usb
+  - Energy
   layers:
   - Default
   - TransparentFX
@@ -44,8 +44,17 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Around
+    uniqueID: 1196603323
+    locked: 0
   - name: Ground
     uniqueID: 2145630581
+    locked: 0
+  - name: BridgeTilemap
+    uniqueID: 3481289905
+    locked: 0
+  - name: WaterTilemap
+    uniqueID: 1213541071
     locked: 0
   - name: ForeGround
     uniqueID: 2163347499
@@ -82,6 +91,9 @@ TagManager:
     locked: 0
   - name: GameUI
     uniqueID: 2696339459
+    locked: 0
+  - name: GameManager
+    uniqueID: 1581382119
     locked: 0
   m_RenderingLayers:
   - Default
