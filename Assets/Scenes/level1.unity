@@ -549,6 +549,8 @@ GameObject:
   - component: {fileID: 410642293}
   - component: {fileID: 410642297}
   - component: {fileID: 410642298}
+  - component: {fileID: 410642299}
+  - component: {fileID: 410642300}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -712,6 +714,89 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   gameManager: {fileID: 1651991631}
+--- !u!61 &410642299
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 410642292}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.8125, y: 1.25}
+    newSize: {x: 2, y: 2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 0.8125, y: 1.25}
+  m_EdgeRadius: 0
+--- !u!70 &410642300
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 410642292}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.8125, y: 1.25}
+  m_Direction: 0
 --- !u!1 &440718710
 GameObject:
   m_ObjectHideFlags: 0
@@ -2912,7 +2997,7 @@ MonoBehaviour:
   boss: {fileID: 1870176914}
   spawner: {fileID: 1359744248}
   energryBar: {fileID: 2027316096}
-  gameUi: {fileID: 1971032843}
+  gameUi: {fileID: 1854874248}
   mainMenu: {fileID: 792848765}
   gameOverMenu: {fileID: 551542372}
   pauseMenu: {fileID: 478326371}
@@ -14212,6 +14297,7 @@ GameObject:
   - component: {fileID: 1870176915}
   - component: {fileID: 1870176919}
   - component: {fileID: 1870176920}
+  - component: {fileID: 1870176921}
   m_Layer: 0
   m_Name: Skeleton
   m_TagString: monster
@@ -14406,6 +14492,43 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.4476972, y: 2.2793093}
   m_EdgeRadius: 0
+--- !u!70 &1870176921
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1870176914}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 4.0000005, y: 4}
+  m_Direction: 0
 --- !u!1 &1887026820
 GameObject:
   m_ObjectHideFlags: 0
@@ -14783,12 +14906,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Skeleton_Bowman
   rb: {fileID: 1967467860}
   speed: 5
-  minX: -5
-  maxX: 5
-  minY: -5
-  maxY: 5
   animator: {fileID: 1967467862}
   spriteRenderer: {fileID: 1967467858}
+  detectionRange: 8
+  attackRange: 1.5
+  attackCooldown: 2
 --- !u!95 &1967467862
 Animator:
   serializedVersion: 7

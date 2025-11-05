@@ -3,8 +3,10 @@ using System.Collections;
 
 public class Skeleton_Swordman : MonoBehaviour
 {
-    private Rigidbody2D rb;
-    public float speed = 5f;
+    public Rigidbody2D rb;
+    public float speed = 3f;
+    public Animator animator;
+    public SpriteRenderer spriteRenderer;
 
     [Header("Movement Boundaries")]
     public float minX = -5f;
@@ -12,22 +14,21 @@ public class Skeleton_Swordman : MonoBehaviour
     public float minY = -5f;
     public float maxY = 5f;
 
-    private Vector2 movement;
+    [Header("AI Behavior")]
+    public float detectionRange = 5f;
+    public float attackRange = 1.5f;
+    public float attackCooldown = 1.5f;
+
+    private Transform playerTransform;
+    private float lastAttackTime = -999f;
+
+    private Vector2 wanderMovement;
     private float changeDirectionTime = 2f;
     private float timer;
 
-    [Header("Animation")]
-    private Animator animator;
-    private SpriteRenderer spriteRenderer;
-
-    [Header("Attack Settings")]
-    public float detectRange = 1.5f; // Ph?m vi ph�t hi?n player
-    public float attackCooldown = 1.5f;
-    private bool isAttacking;
-    private float attackTimer;
-
-    [Header("Player Detection")]
-    public Transform player; // K�o player v�o ?�y trong Inspector
+    private enum State { Wander, Chase, Attack }
+    private State currentState;
+    private bool isAttacking = false;
 
     void Start()
     {
@@ -35,128 +36,140 @@ public class Skeleton_Swordman : MonoBehaviour
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
 
-        timer = changeDirectionTime;
-        attackTimer = attackCooldown;
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player != null) playerTransform = player.transform;
 
-        PickRandomState();
+        timer = changeDirectionTime;
+        currentState = State.Wander;
     }
 
     void Update()
     {
-        if (player == null) return;
-
-        float distanceToPlayer = Vector2.Distance(transform.position, player.position);
-        attackTimer -= Time.deltaTime;
-
-        if (!isAttacking)
+        if (playerTransform == null)
         {
-            if (distanceToPlayer <= detectRange)
-            {
-                // --- Khi player trong ph?m vi t?n c�ng ---
-                rb.linearVelocity = Vector2.zero; // D?NG di chuy?n ho�n to�n
-                movement = Vector2.zero;
-
-                // H??ng v? ph�a player
-                Vector2 dir = (player.position - transform.position).normalized;
-
-                // L?t h??ng sprite (n?u d�ng flipX thay v� animation tr�i/ph?i)
-                if (dir.x < 0)
-                    spriteRenderer.flipX = true;
-                else if (dir.x > 0)
-                    spriteRenderer.flipX = false;
-
-                // N?u t?i l�c t?n c�ng th� t?n c�ng
-                if (attackTimer <= 0f)
-                {
-                    StartCoroutine(Attack(dir));
-                    attackTimer = attackCooldown;
-                }
-            }
-            else
-            {
-                // --- Player ? xa: di chuy?n ng?u nhi�n ---
-                timer -= Time.deltaTime;
-                if (timer <= 0f)
-                {
-                    PickRandomState();
-                    timer = changeDirectionTime;
-                }
-
-                // Cho nh�n v?t di chuy?n b�nh th??ng khi kh�ng t?n c�ng
-                rb.linearVelocity = movement * speed;
-            }
+            currentState = State.Wander;
+            animator.SetFloat("Horizontal", wanderMovement.x);
+            animator.SetFloat("Vertical", wanderMovement.y);
+            animator.SetFloat("Speed", wanderMovement.sqrMagnitude);
+            return;
         }
-        else
+
+        if (isAttacking)
         {
-            // ?ang t?n c�ng th� KH�NG di chuy?n
             rb.linearVelocity = Vector2.zero;
+
+            return;
         }
 
-        // ? Ph?n animator ph?i n?m b�n trong Update()
-        animator.SetFloat("Horizontal", movement.x);
-        animator.SetFloat("Vertical", movement.y);
-        animator.SetFloat("Speed", movement.sqrMagnitude);
+        float distanceToPlayer = Vector2.Distance(transform.position, playerTransform.position);
 
-        // L?t sprite theo h??ng di chuy?n (ch? khi kh�ng t?n c�ng)
-        if (!isAttacking && movement.x != 0)
-            spriteRenderer.flipX = movement.x < 0;
+        switch (currentState)
+        {
+            case State.Wander:
+                if (distanceToPlayer < detectionRange) currentState = State.Chase;
+                break;
+
+            case State.Chase:
+                if (distanceToPlayer < attackRange) currentState = State.Attack;
+                else if (distanceToPlayer > detectionRange) currentState = State.Wander;
+                break;
+
+            case State.Attack:
+                if (distanceToPlayer > attackRange) currentState = State.Chase;
+                if (Time.time >= lastAttackTime + attackCooldown)
+                {
+                    lastAttackTime = Time.time;
+                    StartCoroutine(AttackCoroutine());
+                }
+                break;
+        }
     }
 
     void FixedUpdate()
     {
-        if (isAttacking) return;
+        if (isAttacking || rb == null) return;
 
-        Vector2 newPos = rb.position + movement * speed * Time.fixedDeltaTime;
+        Vector2 direction;
+
+        if (currentState == State.Wander)
+        {
+            timer -= Time.fixedDeltaTime;
+            if (timer <= 0f)
+            {
+                PickRandomDirection();
+                timer = changeDirectionTime;
+            }
+            direction = wanderMovement;
+            animator.SetFloat("Horizontal", direction.x);
+            animator.SetFloat("Vertical", direction.y);
+            animator.SetFloat("Speed", direction.sqrMagnitude);
+            if (direction.x != 0) spriteRenderer.flipX = direction.x < 0;
+        }
+        else if (currentState == State.Chase && playerTransform != null)
+        {
+            direction = (playerTransform.position - transform.position).normalized;
+            animator.SetFloat("Horizontal", direction.x);
+            animator.SetFloat("Vertical", direction.y);
+            animator.SetFloat("Speed", direction.sqrMagnitude);
+            if (direction.x != 0) spriteRenderer.flipX = direction.x < 0;
+        }
+        else
+        {
+            direction = Vector2.zero;
+            animator.SetFloat("Speed", 0);
+        }
+
+        Vector2 newPos = rb.position + direction * speed * Time.fixedDeltaTime;
         newPos.x = Mathf.Clamp(newPos.x, minX, maxX);
         newPos.y = Mathf.Clamp(newPos.y, minY, maxY);
         rb.MovePosition(newPos);
     }
 
-    void PickRandomState()
+    void PickRandomDirection()
     {
         int rand = Random.Range(0, 5);
         switch (rand)
         {
-            case 0: movement = Vector2.zero; break;
-            case 1: movement = Vector2.up; break;
-            case 2: movement = Vector2.right; break;
-            case 3: movement = Vector2.down; break;
-            case 4: movement = Vector2.left; break;
+            case 0: wanderMovement = Vector2.zero; break;
+            case 1: wanderMovement = Vector2.up; break;
+            case 2: wanderMovement = Vector2.right; break;
+            case 3: wanderMovement = Vector2.down; break;
+            case 4: wanderMovement = Vector2.left; break;
         }
     }
 
-    IEnumerator Attack(Vector2 dir)
+    IEnumerator AttackCoroutine()
     {
         isAttacking = true;
+        Vector2 dir = (playerTransform.position - transform.position).normalized;
 
-        // Reset t?t c? bool Attack
-        animator.SetBool("AttackUp", false);
-        animator.SetBool("AttackDown", false);
-        animator.SetBool("AttackRight", false);
+        animator.SetFloat("Speed", 0);
+        animator.SetFloat("AttackX", dir.x);
+        animator.SetFloat("AttackY", dir.y);
+        animator.SetTrigger("Attack");
 
-        // X�c ??nh h??ng ?�nh
         if (Mathf.Abs(dir.x) > Mathf.Abs(dir.y))
         {
-            // ?�nh ngang
-            animator.SetBool("AttackRight", true);
             spriteRenderer.flipX = dir.x < 0;
         }
-        else
-        {
-            // ?�nh d?c
-            if (dir.y > 0)
-                animator.SetBool("AttackUp", true);
-            else
-                animator.SetBool("AttackDown", true);
-            spriteRenderer.flipX = false;
-        }
 
-        yield return new WaitForSeconds(0.8f); // th?i gian animation ?�nh
-
-        animator.SetBool("AttackUp", false);
-        animator.SetBool("AttackDown", false);
-        animator.SetBool("AttackRight", false);
+        yield return new WaitForSeconds(0.8f);
 
         isAttacking = false;
+    }
+
+
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, detectionRange);
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, attackRange);
+
+        Gizmos.color = Color.cyan;
+        Gizmos.DrawLine(new Vector2(minX, minY), new Vector2(maxX, minY));
+        Gizmos.DrawLine(new Vector2(minX, maxY), new Vector2(maxX, maxY));
+        Gizmos.DrawLine(new Vector2(minX, minY), new Vector2(minX, maxY));
+        Gizmos.DrawLine(new Vector2(maxX, minY), new Vector2(maxX, maxY));
     }
 }

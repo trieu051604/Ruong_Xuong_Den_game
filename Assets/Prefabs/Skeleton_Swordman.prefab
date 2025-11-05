@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9178816015175345678}
   - component: {fileID: 1578382666839529999}
+  - component: {fileID: 6725698857204659752}
   - component: {fileID: 3615725710480290365}
   - component: {fileID: 6627016300753930149}
   - component: {fileID: 1171159668893581036}
@@ -94,6 +95,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6725698857204659752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6314386674125705765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e960a1abda856943bf0c54e108a9c41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Skeleton
+  enemyMoveSpeed: 1
+  maxHp: 50
+  hpBar: {fileID: 0}
+  enterDamage: 10
+  stayDamage: 1
+  usbObject: {fileID: 5106188094301589836, guid: d3bc583bbfee6fa48b628a7fbf6294c1, type: 3}
 --- !u!114 &3615725710480290365
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106,14 +125,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 195046d3c1f7c7f409a18187e05d4289, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Skeleton_Swordman
+  rb: {fileID: 6627016300753930149}
   speed: 5
+  animator: {fileID: 1171159668893581036}
+  spriteRenderer: {fileID: 1578382666839529999}
   minX: -4
   maxX: 4
   minY: -4
   maxY: 4
-  detectRange: 1.5
+  detectionRange: 5
+  attackRange: 1.5
   attackCooldown: 1.5
-  player: {fileID: 0}
 --- !u!50 &6627016300753930149
 Rigidbody2D:
   serializedVersion: 5
