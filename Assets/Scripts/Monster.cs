@@ -11,15 +11,19 @@ public abstract class Monster : MonoBehaviour
     [SerializeField] protected float enterDamage = 10f;
     [SerializeField] protected float stayDamage = 1f;
 
+    protected Rigidbody2D rb;
+
     protected virtual void Start()
     {
-        player = FindAnyObjectByType<PlayMovenments>();
+        player = Object.FindAnyObjectByType<PlayMovenments>();
         currentHp = maxHp;
         UpdateHpBar();
+        rb = GetComponent<Rigidbody2D>();
     }
 
-    protected virtual void Update()
+    protected virtual void FixedUpdate()
     {
+        if (player == null || rb == null) return;
         MoveToPlayer();
     }
 
@@ -27,7 +31,9 @@ public abstract class Monster : MonoBehaviour
     {
         if (player != null)
         {
-            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, enemyMoveSpeed * Time.deltaTime);
+            Vector2 direction = (player.transform.position - transform.position).normalized;
+            rb.linearVelocity = direction * enemyMoveSpeed;
+
             FlipEnemy();
         }
     }
@@ -64,4 +70,3 @@ public abstract class Monster : MonoBehaviour
         }
     }
 }
-
