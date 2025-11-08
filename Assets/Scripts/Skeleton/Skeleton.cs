@@ -3,9 +3,11 @@
 public class Skeleton : Monster
 {
     [SerializeField] private GameObject usbObject;
-    private void OnTriggerEnter2D(Collider2D collision)
+    [SerializeField] private AudioManagementLevel1 audioManagementLevel1;
+
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
             if (player != null)
             {
@@ -14,21 +16,24 @@ public class Skeleton : Monster
         }
     }
 
-    protected override void Die()
-    { 
-        Instantiate(usbObject, transform.position, Quaternion.identity);
-        base.Die();
-    }
-
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
             if (player != null)
             {
                 player.TakeDamge(stayDamage);
+                audioManagementLevel1.PlayBossAttackSoundLevel1();
+            }  
             }
+    }
+
+    protected override void Die()
+    {
+        if (usbObject != null)
+        {
+            Instantiate(usbObject, transform.position, Quaternion.identity);
         }
+        base.Die();
     }
 }
-

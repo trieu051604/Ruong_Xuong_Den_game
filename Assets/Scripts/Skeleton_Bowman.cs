@@ -24,7 +24,7 @@ public class Skeleton_Bowman : MonoBehaviour
     // State Machine for AI
     private enum State { Wander, Chase, Attack }
     private State currentState;
-
+    [SerializeField] private AudioManagementLevel3 audioManagementLevel3;
     void Start()
     {
 
@@ -133,6 +133,7 @@ public class Skeleton_Bowman : MonoBehaviour
             animator.SetFloat("AttackX", directionToPlayer.x);
             animator.SetFloat("AttackY", directionToPlayer.y);
             animator.SetTrigger("Attack");
+            audioManagementLevel3.PlayBossAttackSound();
         }
     }
 

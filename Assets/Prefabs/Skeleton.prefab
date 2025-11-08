@@ -14,14 +14,13 @@ GameObject:
   - component: {fileID: 1567845106552869947}
   - component: {fileID: 181052870808572212}
   - component: {fileID: 8578681315460714786}
-  - component: {fileID: 8835061442628241988}
   m_Layer: 0
   m_Name: Skeleton
   m_TagString: monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5121619750854752912
 Transform:
   m_ObjectHideFlags: 0
@@ -31,8 +30,8 @@ Transform:
   m_GameObject: {fileID: 3627747268272942230}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.5976982, y: -0.31413555, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -4.2657, y: 0.6994, z: 0}
+  m_LocalScale: {x: 1.0126883, y: 0.84840184, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -178,8 +177,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.05295007, y: 0.08615908}
-  m_Size: {x: 0.782155, y: 1.480308}
+  m_Offset: {x: 0.094367385, y: 0.18970287}
+  m_Size: {x: 1.6381176, y: 2.7642496}
   m_Direction: 0
 --- !u!114 &8578681315460714786
 MonoBehaviour:
@@ -193,48 +192,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e960a1abda856943bf0c54e108a9c41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Skeleton
-  detectionRange: 8
-  patrolRange: 4
   enemyMoveSpeed: 1
   maxHp: 50
   hpBar: {fileID: 0}
   enterDamage: 10
   stayDamage: 1
-  usbObject: {fileID: 0}
---- !u!70 &8835061442628241988
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3627747268272942230}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 2, y: 2}
-  m_Direction: 0
+  usbObject: {fileID: 5106188094301589836, guid: d3bc583bbfee6fa48b628a7fbf6294c1, type: 3}
+  audioManagementLevel1: {fileID: 0}
