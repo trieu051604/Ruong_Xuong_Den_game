@@ -3,6 +3,7 @@
 public class Skeleton : Monster
 {
     [SerializeField] private GameObject usbObject;
+    [SerializeField] private AudioManagementLevel1 audioManagementLevel1;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -22,8 +23,9 @@ public class Skeleton : Monster
             if (player != null)
             {
                 player.TakeDamge(stayDamage);
+                audioManagementLevel1.PlayBossAttackSoundLevel1();
+            }  
             }
-        }
     }
 
     protected override void Die()

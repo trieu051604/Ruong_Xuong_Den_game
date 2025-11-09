@@ -24,6 +24,7 @@ public class Skeleton_Mage_Move : MonoBehaviour
     // State Machine for AI
     private enum State { Wander, Chase, Attack }
     private State currentState;
+    [SerializeField] private AudioManagementLevel2 audioManagementLevel2;
 
     void Start()
     {
@@ -133,6 +134,7 @@ public class Skeleton_Mage_Move : MonoBehaviour
             animator.SetFloat("AttackX", directionToPlayer.x);
             animator.SetFloat("AttackY", directionToPlayer.y);
             animator.SetTrigger("Attack");
+            audioManagementLevel2.PlayBossAttackSound();
         }
     }
 

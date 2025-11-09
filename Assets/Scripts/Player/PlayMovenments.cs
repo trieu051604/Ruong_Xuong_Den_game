@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayMovenments : MonoBehaviour
@@ -65,9 +66,11 @@ public class PlayMovenments : MonoBehaviour
 
     private void Die()
     {
-        gameManager.GameOverMenu();
-        //Destroy(gameObject);
+        SceneTracker.LastLevelSceneName = SceneManager.GetActiveScene().name;
+        Time.timeScale = 0.5f;
+        SceneManager.LoadScene("GameOver");
     }
+
     private void UpdateHpBar()
     {
         if (hpBar != null)
