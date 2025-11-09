@@ -16,12 +16,15 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject gameOverMenu;
     [SerializeField] private GameObject pauseMenu;
 
+    public string tenManChoi;
+
     public int ammoForThisLevel = 30;
 
     void Start()
     {
         currentEnergy = 0;
         if (boss != null) boss.SetActive(false);
+        UpdateEnergyBar();
         MainMenu();
         Time.timeScale = 1f;
     }
@@ -47,13 +50,19 @@ public class GameManager : MonoBehaviour
 
     private void UpdateEnergyBar()
     {
-        if (energryBar != null)
+    if (energryBar != null)
         {
             float fillAmount = Mathf.Clamp01((float)currentEnergy / (float)energyThreshold);
             energryBar.fillAmount = fillAmount;
         }
     }
 
+    public void LoadManChoiMoi()
+    {
+        SceneManager.LoadScene(tenManChoi);
+    }
+
+    
     public void MainMenu()
     {
         if (mainMenu != null) mainMenu.SetActive(true);

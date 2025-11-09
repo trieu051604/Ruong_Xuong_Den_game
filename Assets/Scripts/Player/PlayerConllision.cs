@@ -8,7 +8,7 @@ public class PlayerConllision : MonoBehaviour
         {
         if (collision.gameObject.CompareTag("usb"))
         {
-            Debug.Log("Collided with USB");
+            gameManager.LoadManChoiMoi();
             Destroy(collision.gameObject);
         }
         else if (collision.gameObject.CompareTag("Energy"))

@@ -1,174 +1,111 @@
 ﻿using UnityEngine;
 
-public class Skeleton_Bowman : MonoBehaviour
+public class Skeleton_Bowman : Monster
 {
-    // Core Components & Stats 
-    public Rigidbody2D rb;
-    public float speed = 3f;
-    public Animator animator;
-    public SpriteRenderer spriteRenderer;
-
-    // AI Behavior Variables 
-    public float detectionRange = 8f;   // Range to detect the player
-    public float attackRange = 1.5f;    // Range to attack the player
-    public float attackCooldown = 2f;   // Cooldown between attacks
-
-    private Transform playerTransform;      // Reference to the player's transform
-    private float lastAttackTime = -999f;   // The time of the last attack
-
-    //  Wander State Variables 
-    private Vector2 wanderMovement;
-    private float changeDirectionTime = 2f;
-    private float timer;
-
-    // State Machine for AI
-    private enum State { Wander, Chase, Attack }
-    private State currentState;
-
-    void Start()
+    [SerializeField] private GameObject bulletPrefabs;
+    [SerializeField] private Transform firePoint;
+    [SerializeField] private float speedDanThuong = 20f;
+    [SerializeField] private float speedDanVongTron = 10f;
+    [SerializeField] private float hpValue = 100f;
+    [SerializeField] private GameObject miniEnemy;
+    [SerializeField] private float skillCooldown = 2f;
+    private float nextSkillTime = 0f;
+    private void Update()
     {
+        if (Time.time >= nextSkillTime)
+        {
+            SuDungSkill();
+        }
+    }
 
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            player.TakeDamge(enterDamage);
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            player.TakeDamge(stayDamage);
+        }
+    }
+
+    private void BanDanThuong()
+    {
         if (player != null)
         {
-            playerTransform = player.transform;
-        }
-
-        timer = changeDirectionTime;
-        currentState = State.Wander;
-    }
-
-    void Update()
-    {
-        if (playerTransform == null)
-        {
-
-            currentState = State.Wander;
-            Wander();
-            return;
-        }
-
-
-        switch (currentState)
-        {
-            case State.Wander:
-                Wander();
-
-                if (Vector2.Distance(transform.position, playerTransform.position) < detectionRange)
-                {
-                    currentState = State.Chase;
-                }
-                break;
-
-            case State.Chase:
-                Chase();
-
-                if (Vector2.Distance(transform.position, playerTransform.position) < attackRange)
-                {
-                    currentState = State.Attack;
-                }
-
-                else if (Vector2.Distance(transform.position, playerTransform.position) > detectionRange)
-                {
-                    currentState = State.Wander;
-                }
-                break;
-
-            case State.Attack:
-                Attack();
-
-                if (Vector2.Distance(transform.position, playerTransform.position) > attackRange)
-                {
-                    currentState = State.Chase;
-                }
-                break;
-        }
-    }
-
-    void Wander()
-    {
-        // Random wandering logic
-        timer -= Time.deltaTime;
-        if (timer <= 0f)
-        {
-            PickRandomDirection();
-            timer = changeDirectionTime;
-        }
-        UpdateAnimation(wanderMovement);
-        rb.MovePosition(rb.position + wanderMovement * speed * Time.fixedDeltaTime);
-    }
-
-    void Chase()
-    {
-        // Move towards the player
-        Vector2 direction = (playerTransform.position - transform.position).normalized;
-        UpdateAnimation(direction);
-        rb.MovePosition(rb.position + direction * speed * Time.fixedDeltaTime);
-    }
-
-    void Attack()
-    {
-        if (playerTransform == null) return;
-
-
-        Vector2 directionToPlayer = (playerTransform.position - transform.position);
-        if (Mathf.Abs(directionToPlayer.x) > Mathf.Abs(directionToPlayer.y))
-        {
-            spriteRenderer.flipX = directionToPlayer.x < 0;
-        }
-
-
-        UpdateAnimation(Vector2.zero);
-
-
-        if (Time.time >= lastAttackTime + attackCooldown)
-        {
-
-            rb.linearVelocity = Vector2.zero;
-
-            lastAttackTime = Time.time;
-
-
+            Vector3 directionToPlayer = player.transform.position - firePoint.position;
             directionToPlayer.Normalize();
-            animator.SetFloat("AttackX", directionToPlayer.x);
-            animator.SetFloat("AttackY", directionToPlayer.y);
-            animator.SetTrigger("Attack");
+            GameObject bullet = Instantiate(bulletPrefabs, firePoint.position, Quaternion.identity);
+            attack_monster enemyBullet = bullet.AddComponent<attack_monster>();
+            enemyBullet.SetMovementDirection(directionToPlayer * speedDanThuong);
         }
     }
 
-    void PickRandomDirection()
+    private void BanDanVongTron()
     {
-        int rand = Random.Range(0, 5);
-        switch (rand)
+        const int bulletCount = 12;
+        float angleStep = 360f / bulletCount;
+        for (int i = 0; i < bulletCount; i++)
         {
-            case 0: wanderMovement = Vector2.zero; break;
-            case 1: wanderMovement = Vector2.up; break;
-            case 2: wanderMovement = Vector2.right; break;
-            case 3: wanderMovement = Vector2.down; break;
-            case 4: wanderMovement = Vector2.left; break;
+            float angle = i * angleStep;
+            Vector3 bulletDirection = new Vector3(Mathf.Cos(Mathf.Deg2Rad * angle), Mathf.Sin(Mathf.Deg2Rad * angle), 0);
+            GameObject bullet = Instantiate(bulletPrefabs, transform.position, Quaternion.identity);
+            attack_monster enemyBullet = bullet.AddComponent<attack_monster>();
+            enemyBullet.SetMovementDirection(bulletDirection * speedDanVongTron);
         }
     }
 
-    void UpdateAnimation(Vector2 movement)
+    private void HoiMau(float hpAmount)
     {
+        currentHp = Mathf.Min(currentHp + hpAmount, maxHp);
+        UpdateHpBar();
+    }
 
-        animator.SetFloat("Horizontal", movement.x);
-        animator.SetFloat("Vertical", movement.y);
-        animator.SetFloat("Speed", movement.sqrMagnitude);
+    private void SinhMiniEnemy()
+    {
+        Instantiate(miniEnemy, transform.position, Quaternion.identity);
+    }
 
-        // Flip sprite based on movement direction (for Wander and Chase states)
-        if (movement.x != 0)
+    private void DichChuyen()
+    {
+        if (player != null)
         {
-            spriteRenderer.flipX = movement.x < 0;
+            transform.position = player.transform.position;
         }
     }
-
-
-    void OnDrawGizmosSelected()
+    private void ChonSkillNgauNhien()
     {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, detectionRange);
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, attackRange);
+        int randomSkill = Random.Range(0, 5);
+        switch (randomSkill)
+        {
+            case 0:
+                BanDanThuong();
+                break;
+            case 1:
+                BanDanVongTron();
+                break;
+            case 2:
+                HoiMau(hpValue);
+                break;
+            case 3:
+                SinhMiniEnemy();
+                break;
+            case 4:
+                DichChuyen();
+                break;
+        }
     }
+    private void SuDungSkill()
+    {
+        nextSkillTime = Time.time + skillCooldown;
+        ChonSkillNgauNhien();
+    }
+
+
 }
