@@ -4,6 +4,9 @@ public class Skeleton : Monster
 {
     [SerializeField] private GameObject usbObject;
     [SerializeField] private AudioManagementLevel1 audioManagementLevel1;
+    public int enemyLevel = 3; 
+    public GameObject winScreen; 
+
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -33,6 +36,12 @@ public class Skeleton : Monster
         if (usbObject != null)
         {
             Instantiate(usbObject, transform.position, Quaternion.identity);
+        }
+        
+        if (enemyLevel == 3 && winScreen != null)
+        {
+            winScreen.SetActive(true);
+            Time.timeScale = 0f; 
         }
         base.Die();
     }
