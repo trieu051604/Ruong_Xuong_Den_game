@@ -1631,6 +1631,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1082613414}
     m_Modifications:
+    - target: {fileID: 2393670295087621552, guid: c9c5723f794d74649b6b646a90d36fa4, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -5801635518998015931, guid: 8e57c03f1e7e2fc44b01f91607f68be4, type: 3}
     - target: {fileID: 2930868324687479680, guid: c9c5723f794d74649b6b646a90d36fa4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -1722,6 +1726,26 @@ PrefabInstance:
     - target: {fileID: 6476295544117654385, guid: c9c5723f794d74649b6b646a90d36fa4, type: 3}
       propertyPath: m_Name
       value: InstructionPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 7949639967430144976, guid: c9c5723f794d74649b6b646a90d36fa4, type: 3}
+      propertyPath: m_text
+      value: "Di chuy\u1EC3n b\u1EB1ng c\xE1c ph\xEDm m\u0169i t\xEAn, t\u1EA5n c\xF4ng
+        b\u1EB1ng c\xE1ch nh\u1EA5p v\xE0o h\u01B0\u1EDBng c\u1EE7a qu\xE1i v\u1EADt
+        v\xE0 tr\xF9m. Tr\u01B0\u1EDBc ti\xEAn, h\xE3y ti\xEAu di\u1EC7t qu\xE1i
+        v\u1EADt \u0111\u1EC3 c\xF3 \u0111\u1EE7 t\xE0i nguy\xEAn t\u1EA5n c\xF4ng
+        tr\xF9m."
+      objectReference: {fileID: 0}
+    - target: {fileID: 8596237827961767316, guid: c9c5723f794d74649b6b646a90d36fa4, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8596237827961767316, guid: c9c5723f794d74649b6b646a90d36fa4, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 6684272218864483316, guid: d4b42b29ef0051e4bbb5bf37db31fec2, type: 3}
+    - target: {fileID: 8596237827961767316, guid: c9c5723f794d74649b6b646a90d36fa4, type: 3}
+      propertyPath: m_Color.a
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

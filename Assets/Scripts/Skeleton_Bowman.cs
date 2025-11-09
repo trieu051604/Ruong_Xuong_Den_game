@@ -25,6 +25,8 @@ public class Skeleton_Bowman : MonoBehaviour
     private enum State { Wander, Chase, Attack }
     private State currentState;
     [SerializeField] private AudioManagementLevel3 audioManagementLevel3;
+    public GameObject winScreen;
+    public int enemyLevel = 3;
     void Start()
     {
 
@@ -116,7 +118,8 @@ public class Skeleton_Bowman : MonoBehaviour
         {
             spriteRenderer.flipX = directionToPlayer.x < 0;
         }
-
+        float attackSpeed = speed * 0.5f; 
+        rb.MovePosition(rb.position + directionToPlayer.normalized * attackSpeed * Time.fixedDeltaTime);
 
         UpdateAnimation(Vector2.zero);
 

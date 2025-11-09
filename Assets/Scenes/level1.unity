@@ -1264,8 +1264,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Move with the arrow keys, attack by clicking on the direction of monsters
-    and bosses. Farm monsters first to have enough resources to attack the boss.
+  m_text: "Di chuy\u1EC3n b\u1EB1ng c\xE1c ph\xEDm m\u0169i t\xEAn, t\u1EA5n c\xF4ng
+    b\u1EB1ng c\xE1ch nh\u1EA5p v\xE0o h\u01B0\u1EDBng c\u1EE7a qu\xE1i v\u1EADt
+    v\xE0 tr\xF9m. Tr\u01B0\u1EDBc ti\xEAn, h\xE3y ti\xEAu di\u1EC7t qu\xE1i v\u1EADt
+    \u0111\u1EC3 c\xF3 \u0111\u1EE7 t\xE0i nguy\xEAn t\u1EA5n c\xF4ng tr\xF9m."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3742,15 +3744,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.2603773, g: 0.2019152, b: 0.2019152, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 6684272218864483316, guid: d4b42b29ef0051e4bbb5bf37db31fec2, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
