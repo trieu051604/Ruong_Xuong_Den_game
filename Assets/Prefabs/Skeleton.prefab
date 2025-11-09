@@ -20,7 +20,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5121619750854752912
 Transform:
   m_ObjectHideFlags: 0
@@ -198,3 +198,4 @@ MonoBehaviour:
   enterDamage: 10
   stayDamage: 1
   usbObject: {fileID: 5106188094301589836, guid: d3bc583bbfee6fa48b628a7fbf6294c1, type: 3}
+  audioManagementLevel1: {fileID: 0}
