@@ -2,124 +2,95 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public enum GameState
-{
-    MainMenu,
-    Playing,
-    Paused,
-    GameOver
-}
-
 public class GameManager : MonoBehaviour
 {
-    [Header("Gameplay")]
     private int currentEnergy;
     [SerializeField] private int energyThreshold = 3;
     [SerializeField] private GameObject boss;
     [SerializeField] private GameObject spawner;
-    [SerializeField] private Image energyBar;
-    [SerializeField] private GameObject gameUi;
-    public int ammoForThisLevel = 30;
-
-    [Header("UI Panels")]
-    [SerializeField] private GameObject mainMenuUI;
-    [SerializeField] private GameObject pauseMenuUI;
-    [SerializeField] private GameObject gameOverMenuUI;
-
-    [Header("Audio")]
-    [SerializeField] private AudioManagerMainMenu audioManagerMainMenu;
-    [SerializeField] private AudioManagementLevel1 audioManagementLevel1;
-
     private bool bossCalled = false;
-    private GameState currentState;
+    [SerializeField] private Image energryBar;
+    [SerializeField] private GameObject gameUi;
+
+    [SerializeField] private GameObject mainMenu;
+    [SerializeField] private GameObject gameOverMenu;
+    [SerializeField] private GameObject pauseMenu;
+
+    public int ammoForThisLevel = 30;
 
     void Start()
     {
         currentEnergy = 0;
-        boss?.SetActive(false);
-        SetGameState(GameState.MainMenu);
-    }
-
-    void Update()
-    {
-        // Optional: handle input like pause toggle
-        if (Input.GetKeyDown(KeyCode.Escape) && currentState == GameState.Playing)
-        {
-            PauseGameMenu();
-        }
+        if (boss != null) boss.SetActive(false);
+        MainMenu();
+        Time.timeScale = 1f;
     }
 
     public void AddEnergy()
     {
         if (bossCalled) return;
-
-        currentEnergy++;
+        currentEnergy += 1;
         UpdateEnergyBar();
-
         if (currentEnergy >= energyThreshold)
         {
             CallBoss();
         }
     }
 
+    public void CallBoss()
+    {
+        bossCalled = true;
+        if (boss != null) boss.SetActive(true);
+        if (spawner != null) spawner.SetActive(false);
+        if (gameUi != null) gameUi.SetActive(false);
+    }
+
     private void UpdateEnergyBar()
     {
-        if (energyBar != null)
+        if (energryBar != null)
         {
-            float fillAmount = Mathf.Clamp01((float)currentEnergy / energyThreshold);
-            energyBar.fillAmount = fillAmount;
+            float fillAmount = Mathf.Clamp01((float)currentEnergy / (float)energyThreshold);
+            energryBar.fillAmount = fillAmount;
         }
     }
 
-    private void CallBoss()
+    public void MainMenu()
     {
-        bossCalled = true;
-        boss?.SetActive(true);
-        spawner?.SetActive(false);
-        gameUi?.SetActive(false);
-    }
-
-    public void StartGame()
-    {
-        SetGameState(GameState.Playing);
-        Time.timeScale = 1f;
-        audioManagerMainMenu?.PlayBackgroundMusicMainMenu();
-    }
-
-    public void PauseGameMenu()
-    {
-        SetGameState(GameState.Paused);
+        if (mainMenu != null) mainMenu.SetActive(true);
+        if (gameOverMenu != null) gameOverMenu.SetActive(false);
+        if (pauseMenu != null) pauseMenu.SetActive(false);
         Time.timeScale = 0f;
-        Debug.Log("Game Paused!");
-    }
-
-    public void ResumeGame()
-    {
-        SetGameState(GameState.Playing);
-        Time.timeScale = 1f;
-        Debug.Log("Game Resumed!");
     }
 
     public void GameOverMenu()
     {
-        SetGameState(GameState.GameOver);
-        Time.timeScale = 0f;
-        Debug.Log("Game Over!");
-    }
-
-    public void ReturnToMainMenu()
-    {
-        SetGameState(GameState.MainMenu);
+        if (gameOverMenu != null) gameOverMenu.SetActive(true);
+        if (mainMenu != null) mainMenu.SetActive(false);
+        if (pauseMenu != null) pauseMenu.SetActive(false);
         Time.timeScale = 0f;
     }
 
-    private void SetGameState(GameState newState)
+    public void PauseGameMenu()
     {
-        currentState = newState;
+        if (pauseMenu != null) pauseMenu.SetActive(true);
+        if (mainMenu != null) mainMenu.SetActive(false);
+        if (gameOverMenu != null) gameOverMenu.SetActive(false);
+        Time.timeScale = 0f;
+    }
 
-        mainMenuUI?.SetActive(newState == GameState.MainMenu);
-        pauseMenuUI?.SetActive(newState == GameState.Paused);
-        gameOverMenuUI?.SetActive(newState == GameState.GameOver);
-        gameUi?.SetActive(newState == GameState.Playing);
+    public void StartGame()
+    {
+        if (mainMenu != null) mainMenu.SetActive(false);
+        if (pauseMenu != null) pauseMenu.SetActive(false);
+        if (gameOverMenu != null) gameOverMenu.SetActive(false);
+        Time.timeScale = 1f;
+    }
+
+    public void ResumeGame()
+    {
+        if (mainMenu != null) mainMenu.SetActive(false);
+        if (pauseMenu != null) pauseMenu.SetActive(false);
+        if (gameOverMenu != null) gameOverMenu.SetActive(false);
+        Time.timeScale = 1f;
     }
 }
