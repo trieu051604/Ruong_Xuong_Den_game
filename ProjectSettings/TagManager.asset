@@ -10,6 +10,7 @@ TagManager:
   - monster
   - usb
   - Energy
+  - attack_monster
   layers:
   - Default
   - TransparentFX

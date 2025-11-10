@@ -184,8 +184,8 @@ MonoBehaviour:
   enemyMoveSpeed: 1
   maxHp: 50
   hpBar: {fileID: 7537207355275557874}
-  enterDamage: 10
-  stayDamage: 1
+  enterDamage: 5
+  stayDamage: 0.5
   energryObject: {fileID: 7827828690565984344, guid: a3a40e5c3c65d034a87b4c6219d2df97, type: 3}
 --- !u!95 &3918189274276103319
 Animator:
