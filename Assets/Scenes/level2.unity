@@ -865,6 +865,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5540642754691593823, guid: 6afc7beb96fbe3c4690ba31734b121ed, type: 3}
   m_PrefabInstance: {fileID: 256143249}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &256143251 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6341885710856434387, guid: 6afc7beb96fbe3c4690ba31734b121ed, type: 3}
+  m_PrefabInstance: {fileID: 256143249}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
 --- !u!1 &261339158
 GameObject:
   m_ObjectHideFlags: 0
@@ -5251,7 +5262,7 @@ MonoBehaviour:
   - {fileID: 261339159}
   - {fileID: 84603355}
   - {fileID: 948641808}
-  timeBetweenSpawns: 5
+  timeBetweenSpawns: 4
 --- !u!4 &909470607
 Transform:
   m_ObjectHideFlags: 0
@@ -5541,12 +5552,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Skeleton
   enemyMoveSpeed: 1
-  maxHp: 50
-  hpBar: {fileID: 0}
-  enterDamage: 10
+  maxHp: 400
+  hpBar: {fileID: 256143251}
+  enterDamage: 15
   stayDamage: 1
   usbObject: {fileID: 5106188094301589836, guid: d3bc583bbfee6fa48b628a7fbf6294c1, type: 3}
   audioManagementLevel1: {fileID: 0}
+  enemyLevel: 3
+  winScreen: {fileID: 0}
 --- !u!1001 &1243747346
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6480,7 +6493,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5eb93c4db8a0724b8e4ee90be57ffb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
-  energyThreshold: 3
+  energyThreshold: 15
   boss: {fileID: 1186206063}
   spawner: {fileID: 909470605}
   energryBar: {fileID: 0}

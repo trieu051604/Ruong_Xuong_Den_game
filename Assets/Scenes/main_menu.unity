@@ -269,8 +269,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26fd3f24f6410e14ca59713e914109ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MainMenu
-  instructionPanel: {fileID: 0}
-  mainMenuPanel: {fileID: 0}
+  instructionPanel: {fileID: 1901087373}
+  mainMenuPanel: {fileID: 1796342004}
 --- !u!1 &419664103
 GameObject:
   m_ObjectHideFlags: 0

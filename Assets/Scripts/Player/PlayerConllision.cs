@@ -18,5 +18,11 @@ public class PlayerConllision : MonoBehaviour
             Destroy(collision.gameObject);
             audioManagerPlayer.PlayCollectSound();
         }
+        else if (collision.gameObject.CompareTag("attack_monster"))
+        {
+            PlayMovenments player = GetComponent<PlayMovenments>();
+            player.TakeDamge(10f);
+
+        }
     } 
 }

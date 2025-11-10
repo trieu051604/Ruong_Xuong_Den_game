@@ -171,7 +171,7 @@ MonoBehaviour:
   speed: 5
   animator: {fileID: 7126294346400531394}
   spriteRenderer: {fileID: 6434216853424844026}
-  maxHp: 100
+  maxHp: 200
   hpBar: {fileID: 4542622709718554720}
   gameManager: {fileID: 0}
 --- !u!95 &7126294346400531394
@@ -209,6 +209,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   gameManager: {fileID: 0}
+  audioManagerPlayer: {fileID: 0}
 --- !u!70 &3231919314426335960
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -354,6 +355,7 @@ MonoBehaviour:
   bulletPrefabs: {fileID: 3307122146537961770, guid: a65d22de8c0c7094599e78eb4ad91ae3, type: 3}
   shotDelay: 0.15
   currentAmmo: 0
+  audioManagerPlayer: {fileID: 0}
 --- !u!1001 &7424259016263248563
 PrefabInstance:
   m_ObjectHideFlags: 0
