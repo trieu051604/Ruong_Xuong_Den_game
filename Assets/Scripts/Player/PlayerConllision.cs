@@ -9,7 +9,7 @@ public class PlayerConllision : MonoBehaviour
         {
         if (collision.gameObject.CompareTag("usb"))
         {
-            Debug.Log("Collided with USB");
+            gameManager.LoadManChoiMoi();
             Destroy(collision.gameObject);
         }
         else if (collision.gameObject.CompareTag("Energy"))
@@ -17,6 +17,12 @@ public class PlayerConllision : MonoBehaviour
             gameManager.AddEnergy();
             Destroy(collision.gameObject);
             audioManagerPlayer.PlayCollectSound();
+        }
+        else if (collision.gameObject.CompareTag("attack_monster"))
+        {
+            PlayMovenments player = GetComponent<PlayMovenments>();
+            player.TakeDamge(10f);
+
         }
     } 
 }

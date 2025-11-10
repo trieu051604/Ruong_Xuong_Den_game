@@ -206,8 +206,8 @@ MonoBehaviour:
   enemyMoveSpeed: 1
   maxHp: 60
   hpBar: {fileID: 6734039640562434913}
-  enterDamage: 10
-  stayDamage: 1
+  enterDamage: 3
+  stayDamage: 0.5
   energryObject: {fileID: 7827828690565984344, guid: a3a40e5c3c65d034a87b4c6219d2df97, type: 3}
 --- !u!70 &4632179795812485712
 CapsuleCollider2D:
